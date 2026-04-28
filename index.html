@@ -549,6 +549,16 @@
         color: var(--text-primary);
         font-weight: 500;
       }
+      .schedule-text a {
+        color: var(--text-primary);
+        text-decoration: none;
+        border-bottom: 1px dashed var(--accent-sky);
+        transition: all 0.2s ease;
+      }
+      .schedule-text a:hover {
+        color: var(--accent-sky);
+        border-bottom-style: solid;
+      }
       .km-badge {
         display: inline-block;
         padding: 0.15rem 0.5rem;
@@ -591,6 +601,8 @@
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
       }
       .hotel-card::before {
         content: "";
@@ -676,6 +688,48 @@
         line-height: 1.5;
         padding-top: 0.5rem;
         border-top: 1px solid var(--border);
+        margin-bottom: 1rem;
+      }
+      .hotel-links {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: auto;
+      }
+      .hotel-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        flex: 1;
+        justify-content: center;
+      }
+      .hotel-btn.booking {
+        background: rgba(0, 113, 194, 0.15);
+        color: #0071c2;
+        border: 1px solid rgba(0, 113, 194, 0.3);
+      }
+      .hotel-btn.booking:hover {
+        background: rgba(0, 113, 194, 0.25);
+        transform: translateY(-2px);
+      }
+      .hotel-btn.maps {
+        background: rgba(234, 67, 53, 0.15);
+        color: #ea4335;
+        border: 1px solid rgba(234, 67, 53, 0.3);
+      }
+      .hotel-btn.maps:hover {
+        background: rgba(234, 67, 53, 0.25);
+        transform: translateY(-2px);
+      }
+      .hotel-btn svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
       }
 
       /* ===== TEAM SECTION ===== */
@@ -829,6 +883,9 @@
         .stat-number {
           font-size: 2.2rem;
         }
+        .hotel-links {
+          flex-direction: column;
+        }
       }
       @media (max-width: 480px) {
         .team-grid {
@@ -965,7 +1022,7 @@
               <div class="schedule-item hotel">
                 <span class="schedule-time">~21:30</span>
                 <span class="schedule-text"
-                  ><strong>Check-in Vakantiepark Molenvelden</strong> — 5
+                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1& target="_blank"><strong>Check-in Vakantiepark Molenvelden</strong></a> — 5
                   noches</span
                 >
               </div>
@@ -984,14 +1041,14 @@
               <div class="schedule-item event">
                 <span class="schedule-time">Todo el día</span>
                 <span class="schedule-text"
-                  ><strong>Graspop Metal Meeting</strong> — Dessel,
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Kastelsedijk+2480+Dessel+Belgium" target="_blank"><strong>Graspop Metal Meeting</strong></a> — Dessel,
                   Bélgica</span
                 >
               </div>
               <div class="schedule-item hotel">
                 <span class="schedule-time">Noche</span>
                 <span class="schedule-text"
-                  ><strong>Vakantiepark Molenvelden</strong> — Veldhoven, Países
+                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1&" target="_blank"><strong>Vakantiepark Molenvelden</strong></a> — Veldhoven, Países
                   Bajos</span
                 >
               </div>
@@ -1010,13 +1067,13 @@
               <div class="schedule-item event">
                 <span class="schedule-time">Todo el día</span>
                 <span class="schedule-text"
-                  ><strong>Graspop Metal Meeting</strong> — Día 2</span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Kastelsedijk+2480+Dessel+Belgium" target="_blank"><strong>Graspop Metal Meeting</strong></a> — Día 2</span
                 >
               </div>
               <div class="schedule-item hotel">
                 <span class="schedule-time">Noche</span>
                 <span class="schedule-text"
-                  ><strong>Vakantiepark Molenvelden</strong></span
+                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1&" target="_blank"><strong>Vakantiepark Molenvelden</strong></a></span
                 >
               </div>
             </div>
@@ -1034,13 +1091,13 @@
               <div class="schedule-item event">
                 <span class="schedule-time">Todo el día</span>
                 <span class="schedule-text"
-                  ><strong>Graspop Metal Meeting</strong> — Día 3</span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Kastelsedijk+2480+Dessel+Belgium" target="_blank"><strong>Graspop Metal Meeting</strong></a> — Día 3</span
                 >
               </div>
               <div class="schedule-item hotel">
                 <span class="schedule-time">Noche</span>
                 <span class="schedule-text"
-                  ><strong>Vakantiepark Molenvelden</strong></span
+                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1&" target="_blank"><strong>Vakantiepark Molenvelden</strong></a></span
                 >
               </div>
             </div>
@@ -1058,13 +1115,13 @@
               <div class="schedule-item event">
                 <span class="schedule-time">Todo el día</span>
                 <span class="schedule-text"
-                  ><strong>Graspop Metal Meeting</strong> — Último día</span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Kastelsedijk+2480+Dessel+Belgium" target="_blank"><strong>Graspop Metal Meeting</strong></a> — Último día</span
                 >
               </div>
               <div class="schedule-item hotel">
                 <span class="schedule-time">Noche</span>
                 <span class="schedule-text"
-                  ><strong>Vakantiepark Molenvelden</strong></span
+                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1&" target="_blank"><strong>Vakantiepark Molenvelden</strong></a></span
                 >
               </div>
             </div>
@@ -1082,7 +1139,7 @@
               <div class="schedule-item hotel">
                 <span class="schedule-time">10:00</span>
                 <span class="schedule-text"
-                  ><strong>Check-out Vakantiepark Molenvelden</strong></span
+                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1&" target="_blank"><strong>Check-out Vakantiepark Molenvelden</strong></a></span
                 >
               </div>
               <div class="schedule-item drive">
@@ -1095,7 +1152,7 @@
               <div class="schedule-item museum">
                 <span class="schedule-time">12:15</span>
                 <span class="schedule-text"
-                  ><strong>Catedral de Colonia</strong> — Visita y paseo por el
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Cologne+Cathedral+Domkloster+4+50667+Cologne+Germany" target="_blank"><strong>Catedral de Colonia</strong></a> — Visita y paseo por el
                   centro</span
                 >
               </div>
@@ -1109,7 +1166,7 @@
               <div class="schedule-item hotel">
                 <span class="schedule-time">17:45</span>
                 <span class="schedule-text"
-                  ><strong>Check-in The Concert Hotel</strong> — 2 noches</span
+                  ><a href="https://www.booking.com/hotel/nl/the-concert.html" target="_blank"><strong>Check-in The Concert Hotel</strong></a> — 2 noches</span
                 >
               </div>
             </div>
@@ -1127,19 +1184,19 @@
               <div class="schedule-item tour">
                 <span class="schedule-time">10:30</span>
                 <span class="schedule-text"
-                  ><strong>Free Tour Amsterdam</strong> — ~2h 30min</span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Dam+Square+Amsterdam+Netherlands" target="_blank"><strong>Free Tour Amsterdam</strong></a> — ~2h 30min (punto de encuentro: Dam Square)</span
                 >
               </div>
               <div class="schedule-item museum">
                 <span class="schedule-time">14:30</span>
                 <span class="schedule-text"
-                  ><strong>Museo Casa de Ana Frank</strong></span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Anne+Frank+House+Westermarkt+20+1016+DK+Amsterdam" target="_blank"><strong>Museo Casa de Ana Frank</strong></a></span
                 >
               </div>
               <div class="schedule-item museum">
                 <span class="schedule-time">16:30</span>
                 <span class="schedule-text"
-                  ><strong>Museo Van Gogh</strong></span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Van+Gogh+Museum+Museumplein+6+1071+DJ+Amsterdam" target="_blank"><strong>Museo Van Gogh</strong></a></span
                 >
               </div>
             </div>
@@ -1170,13 +1227,13 @@
               <div class="schedule-item tour">
                 <span class="schedule-time">12:30</span>
                 <span class="schedule-text"
-                  ><strong>Free Tour Brujas</strong> — ~2h 30min</span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Markt+8000+Brugge+Belgium" target="_blank"><strong>Free Tour Brujas</strong></a> — ~2h 30min (punto de encuentro: Grote Markt)</span
                 >
               </div>
               <div class="schedule-item hotel">
                 <span class="schedule-time">16:00</span>
                 <span class="schedule-text"
-                  ><strong>Check-in Snuffel Youth Hostel</strong> — 1
+                  ><a href="https://www.booking.com/hotel/be/snuffel-backpacker-hostel.html" target="_blank"><strong>Check-in Snuffel Youth Hostel</strong></a> — 1
                   noche</span
                 >
               </div>
@@ -1195,7 +1252,7 @@
               <div class="schedule-item hotel">
                 <span class="schedule-time">09:00</span>
                 <span class="schedule-text"
-                  ><strong>Check-out Snuffel Youth Hostel</strong></span
+                  ><a href="https://www.booking.com/hotel/be/snuffel-backpacker-hostel.html" target="_blank"><strong>Check-out Snuffel Youth Hostel</strong></a></span
                 >
               </div>
               <div class="schedule-item drive">
@@ -1214,26 +1271,26 @@
               <div class="schedule-item tour">
                 <span class="schedule-time">11:30</span>
                 <span class="schedule-text"
-                  ><strong>Free Tour Gante</strong> — ~2h 30min</span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Hostel+Uppelink+Sint-Michielsplein+21+9000+Gent+Belgium" target="_blank"><strong>Free Tour Gante</strong></a> — ~2h 30min (punto de encuentro: Hostel Uppelink)</span
                 >
               </div>
               <div class="schedule-item hotel">
                 <span class="schedule-time">15:00</span>
                 <span class="schedule-text"
-                  ><strong>Check-in Hotel Arriate</strong> — 1 noche (check-in
+                  ><a href="https://www.booking.com/hotel/be/arriate.html" target="_blank"><strong>Check-in Hotel Arriate</strong></a> — 1 noche (check-in
                   desde 15:00)</span
                 >
               </div>
               <div class="schedule-item museum">
                 <span class="schedule-time">16:00</span>
                 <span class="schedule-text"
-                  ><strong>Castillo Gravensteen</strong></span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Gravensteen+Sint-Veerleplein+11+9000+Gent+Belgium" target="_blank"><strong>Castillo Gravensteen</strong></a></span
                 >
               </div>
               <div class="schedule-item museum">
                 <span class="schedule-time">17:30</span>
                 <span class="schedule-text"
-                  ><strong>Catedral San Bavón</strong> — Retablo Van Eyck</span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Saint+Bavo%27s+Cathedral+Sint-Baafsplein+9000+Gent+Belgium" target="_blank"><strong>Catedral San Bavón</strong></a> — Retablo Van Eyck</span
                 >
               </div>
             </div>
@@ -1251,7 +1308,7 @@
               <div class="schedule-item hotel">
                 <span class="schedule-time">09:00</span>
                 <span class="schedule-text"
-                  ><strong>Check-out Hotel Arriate</strong></span
+                  ><a href="https://www.booking.com/hotel/be/arriate.html" target="_blank"><strong>Check-out Hotel Arriate</strong></a></span
                 >
               </div>
               <div class="schedule-item drive">
@@ -1270,26 +1327,26 @@
               <div class="schedule-item tour">
                 <span class="schedule-time">11:30</span>
                 <span class="schedule-text"
-                  ><strong>Free Tour Bruselas</strong> — ~2h 30min</span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Grand+Place+1000+Brussels+Belgium" target="_blank"><strong>Free Tour Bruselas</strong></a> — ~2h 30min (punto de encuentro: Grand Place, frente al Ayuntamiento)</span
                 >
               </div>
               <div class="schedule-item hotel">
                 <span class="schedule-time">15:00</span>
                 <span class="schedule-text"
-                  ><strong>Check-in Hotel Aviation</strong> — Bruselas 1070, 2
+                  ><a href="https://www.booking.com/hotel/be/aviation-anderlecht.html" target="_blank"><strong>Check-in Hotel Aviation</strong></a> — Bruselas 1070, 2
                   noches (check-in desde 15:00)</span
                 >
               </div>
               <div class="schedule-item museum">
                 <span class="schedule-time">16:00</span>
                 <span class="schedule-text"
-                  ><strong>Grand Place & Manneken Pis</strong></span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Grand+Place+1000+Brussels+Belgium" target="_blank"><strong>Grand Place & Manneken Pis</strong></a></span
                 >
               </div>
               <div class="schedule-item museum">
                 <span class="schedule-time">17:30</span>
                 <span class="schedule-text"
-                  ><strong>Atomium</strong> — Si da tiempo</span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Atomium+Square+de+l%27Atomium+1020+Brussels+Belgium" target="_blank"><strong>Atomium</strong></a> — Si da tiempo</span
                 >
               </div>
             </div>
@@ -1321,19 +1378,19 @@
               <div class="schedule-item optional">
                 <span class="schedule-time">11:30</span>
                 <span class="schedule-text"
-                  ><strong>Free Tour Amberes</strong> — ~2h 30min</span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Grote+Markt+2000+Antwerpen+Belgium" target="_blank"><strong>Free Tour Amberes</strong></a> — ~2h 30min (punto de encuentro: Grote Markt)</span
                 >
               </div>
               <div class="schedule-item optional">
                 <span class="schedule-time">15:30</span>
                 <span class="schedule-text"
-                  ><strong>Estación Central & Grote Markt</strong></span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Antwerp+Central+Station+Koningin+Astridplein+27+2018+Antwerpen+Belgium" target="_blank"><strong>Estación Central & Grote Markt</strong></a></span
                 >
               </div>
               <div class="schedule-item optional">
                 <span class="schedule-time">17:30</span>
                 <span class="schedule-text"
-                  ><strong>Casa de Rubens</strong> — Rubenshuis</span
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Rubenshuis+Wapper+9-11+2000+Antwerpen+Belgium" target="_blank"><strong>Casa de Rubens</strong></a> — Rubenshuis</span
                 >
               </div>
               <div class="schedule-item optional">
@@ -1367,7 +1424,7 @@
               <div class="schedule-item hotel">
                 <span class="schedule-time">12:00</span>
                 <span class="schedule-text"
-                  ><strong>Check-out Hotel Aviation</strong></span
+                  ><a href="https://www.booking.com/hotel/be/aviation-anderlecht.html" target="_blank"><strong>Check-out Hotel Aviation</strong></a></span
                 >
               </div>
               <div class="schedule-item drive">
@@ -1380,14 +1437,14 @@
               <div class="schedule-item hotel">
                 <span class="schedule-time">15:00</span>
                 <span class="schedule-text"
-                  ><strong>Check-in FANTASIA apartment</strong> — Check-in desde
+                  ><a href="https://www.booking.com/hotel/be/a-spacious-beautiful-apartment-amp-affordable.html" target="_blank"><strong>Check-in FANTASIA apartment</strong></a> — Check-in desde
                   las 15:00</span
                 >
               </div>
               <div class="schedule-item event">
                 <span class="schedule-time">17:00</span>
                 <span class="schedule-text"
-                  ><strong>Concierto Festivalpark Werchter</strong> — Rotselaar,
+                  ><a href="https://www.google.com/maps/search/?api=1&query=Festivalpark+Werchter+Haachtsesteenweg+23+3118+Rotselaar+Belgium" target="_blank"><strong>Concierto Festivalpark Werchter</strong></a> — Rotselaar,
                   Bélgica</span
                 >
               </div>
@@ -1412,7 +1469,7 @@
               <div class="schedule-item hotel">
                 <span class="schedule-time">11:00</span>
                 <span class="schedule-text"
-                  ><strong>Check-out FANTASIA apartment</strong> — Hasta las
+                  ><a href="https://www.booking.com/hotel/be/a-spacious-beautiful-apartment-amp-affordable.html" target="_blank"><strong>Check-out FANTASIA apartment</strong></a> — Hasta las
                   11:00</span
                 >
               </div>
@@ -1456,6 +1513,16 @@
           <div class="hotel-address">
             25 Banstraat<br />5506 LA Veldhoven, Países Bajos
           </div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/hotel/nl/vakantiepark-molenvelden.html" target="_blank" class="hotel-btn booking">
+              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+              Booking
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Vakantiepark+Molenvelden+Banstraat+25+5506+LA+Veldhoven+Netherlands" target="_blank" class="hotel-btn maps">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Maps
+            </a>
+          </div>
         </div>
         <div class="hotel-card">
           <div class="hotel-name">The Concert Hotel</div>
@@ -1463,6 +1530,16 @@
           <div class="hotel-dates">22–24 Junio · 2 noches</div>
           <div class="hotel-address">
             De Lairessestraat 7<br />1075 HH Amsterdam, Países Bajos
+          </div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/hotel/nl/the-concert.html" target="_blank" class="hotel-btn booking">
+              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+              Booking
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=The+Concert+Hotel+De+Lairessestraat+7+1075+HH+Amsterdam+Netherlands" target="_blank" class="hotel-btn maps">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Maps
+            </a>
           </div>
         </div>
         <div class="hotel-card">
@@ -1472,6 +1549,16 @@
           <div class="hotel-address">
             Ezelstraat 42<br />Centro histórico de Brujas, 8000 Brujas, Bélgica
           </div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/hotel/be/snuffel-backpacker-hostel.html" target="_blank" class="hotel-btn booking">
+              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+              Booking
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Snuffel+Youth+Hostel+Ezelstraat+42+8000+Brugge+Belgium" target="_blank" class="hotel-btn maps">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Maps
+            </a>
+          </div>
         </div>
         <div class="hotel-card">
           <div class="hotel-name">Hotel Arriate</div>
@@ -1479,6 +1566,16 @@
           <div class="hotel-dates">25–26 Junio · 1 noche</div>
           <div class="hotel-address">
             92 Antwerpse Steenweg<br />9080 Lochristi, Bélgica
+          </div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/hotel/be/arriate.html" target="_blank" class="hotel-btn booking">
+              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+              Booking
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Arriate+Antwerpse+Steenweg+92+9080+Lochristi+Belgium" target="_blank" class="hotel-btn maps">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Maps
+            </a>
           </div>
         </div>
         <div class="hotel-card">
@@ -1488,6 +1585,16 @@
           <div class="hotel-address">
             Rue Auguste Gevaert 47<br />1070 Anderlecht, Bruselas, Bélgica
           </div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/hotel/be/aviation-anderlecht.html" target="_blank" class="hotel-btn booking">
+              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+              Booking
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Aviation+Rue+Auguste+Gevaert+47+1070+Anderlecht+Brussels+Belgium" target="_blank" class="hotel-btn maps">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Maps
+            </a>
+          </div>
         </div>
         <div class="hotel-card">
           <div class="hotel-name">FANTASIA apartment</div>
@@ -1495,6 +1602,16 @@
           <div class="hotel-dates">28–29 Junio · 1 noche</div>
           <div class="hotel-address">
             Leuvensesteenweg 626, 2nd floor<br />1930 Nossegem, Bélgica
+          </div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/hotel/be/a-spacious-beautiful-apartment-amp-affordable.html" target="_blank" class="hotel-btn booking">
+              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+              Booking
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Leuvensesteenweg+626+1930+Nossegem+Belgium" target="_blank" class="hotel-btn maps">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Maps
+            </a>
           </div>
         </div>
       </div>
