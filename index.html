@@ -1,1741 +1,1167 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veranito Yeye — Ruta Benelux 2026</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      :root {
-        --bg-dark: #0d0d1a;
-        --bg-card: #141428;
-        --bg-card-hover: #1c1c3a;
-        --accent-gold: #e8c547;
-        --accent-rose: #e94560;
-        --accent-mint: #00d9a5;
-        --accent-sky: #4cc9f0;
-        --accent-purple: #a855f7;
-        --accent-orange: #ff6b35;
-        --text-primary: #f1f1f1;
-        --text-secondary: #a0a0b0;
-        --text-muted: #6b6b7b;
-        --border: rgba(255, 255, 255, 0.06);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        background: var(--bg-dark);
-        color: var(--text-primary);
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-
-      /* ===== HERO ===== */
-      .hero {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        position: relative;
-        background: linear-gradient(
-          135deg,
-          #0d0d1a 0%,
-          #141428 50%,
-          #0f1a3a 100%
-        );
-        overflow: hidden;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          circle,
-          rgba(232, 197, 71, 0.04) 0%,
-          transparent 70%
-        );
-        animation: pulse 8s ease-in-out infinite;
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-          opacity: 0.5;
+        :root {
+            --bg-dark: #0d0d1a;
+            --bg-card: #141428;
+            --bg-card-hover: #1c1c3a;
+            --accent-gold: #e8c547;
+            --accent-rose: #e94560;
+            --accent-mint: #00d9a5;
+            --accent-sky: #4cc9f0;
+            --accent-purple: #a855f7;
+            --accent-orange: #ff6b35;
+            --text-primary: #f1f1f1;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6b6b7b;
+            --border: rgba(255,255,255,0.06);
         }
-        50% {
-          transform: scale(1.1);
-          opacity: 1;
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-      }
 
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        padding: 2rem;
-      }
-
-      .hero-badge {
-        display: inline-block;
-        padding: 0.5rem 1.5rem;
-        background: rgba(232, 197, 71, 0.12);
-        border: 1px solid var(--accent-gold);
-        border-radius: 50px;
-        font-size: 0.8rem;
-        font-weight: 500;
-        color: var(--accent-gold);
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        margin-bottom: 1.5rem;
-        animation: fadeInDown 1s ease;
-      }
-
-      .hero h1 {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(3rem, 8vw, 7rem);
-        font-weight: 700;
-        line-height: 1;
-        margin-bottom: 0.5rem;
-        background: linear-gradient(
-          135deg,
-          #f1f1f1 0%,
-          var(--accent-gold) 50%,
-          var(--accent-rose) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: fadeInUp 1s ease 0.2s both;
-      }
-
-      .hero-subtitle {
-        font-size: clamp(1rem, 2vw, 1.4rem);
-        color: var(--text-secondary);
-        font-weight: 300;
-        max-width: 600px;
-        margin: 0 auto 2rem;
-        animation: fadeInUp 1s ease 0.4s both;
-      }
-
-      .hero-stats {
-        display: flex;
-        gap: 2.5rem;
-        justify-content: center;
-        flex-wrap: wrap;
-        animation: fadeInUp 1s ease 0.6s both;
-      }
-
-      .stat {
-        text-align: center;
-      }
-      .stat-number {
-        font-family: "Playfair Display", serif;
-        font-size: 2.8rem;
-        font-weight: 700;
-        color: var(--accent-gold);
-      }
-      .stat-label {
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
-
-      .scroll-indicator {
-        position: absolute;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        animation: bounce 2s infinite;
-        cursor: pointer;
-      }
-      .scroll-indicator svg {
-        width: 30px;
-        height: 30px;
-        stroke: var(--accent-gold);
-        stroke-width: 2;
-        fill: none;
-      }
-
-      @keyframes bounce {
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-          transform: translateX(-50%) translateY(0);
-        }
-        40% {
-          transform: translateX(-50%) translateY(-10px);
-        }
-        60% {
-          transform: translateX(-50%) translateY(-5px);
-        }
-      }
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* ===== CHIPS / LEYENDA ===== */
-      .chips-section {
-        padding: 2rem 2rem 0;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-      .chips-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        justify-content: center;
-      }
-      .chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.4rem 1rem;
-        border-radius: 50px;
-        font-size: 0.8rem;
-        font-weight: 500;
-        border: 1px solid transparent;
-      }
-      .chip-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-      }
-      .chip.drive {
-        background: rgba(0, 217, 165, 0.12);
-        color: var(--accent-mint);
-        border-color: rgba(0, 217, 165, 0.3);
-      }
-      .chip.drive .chip-dot {
-        background: var(--accent-mint);
-      }
-      .chip.hotel {
-        background: rgba(233, 69, 96, 0.12);
-        color: var(--accent-rose);
-        border-color: rgba(233, 69, 96, 0.3);
-      }
-      .chip.hotel .chip-dot {
-        background: var(--accent-rose);
-      }
-      .chip.tour {
-        background: rgba(168, 85, 247, 0.12);
-        color: var(--accent-purple);
-        border-color: rgba(168, 85, 247, 0.3);
-      }
-      .chip.tour .chip-dot {
-        background: var(--accent-purple);
-      }
-      .chip.museum {
-        background: rgba(76, 201, 240, 0.12);
-        color: var(--accent-sky);
-        border-color: rgba(76, 201, 240, 0.3);
-      }
-      .chip.museum .chip-dot {
-        background: var(--accent-sky);
-      }
-      .chip.event {
-        background: rgba(232, 197, 71, 0.12);
-        color: var(--accent-gold);
-        border-color: rgba(232, 197, 71, 0.3);
-      }
-      .chip.event .chip-dot {
-        background: var(--accent-gold);
-      }
-      .chip.flight {
-        background: rgba(255, 107, 53, 0.12);
-        color: var(--accent-orange);
-        border-color: rgba(255, 107, 53, 0.3);
-      }
-      .chip.flight .chip-dot {
-        background: var(--accent-orange);
-      }
-
-      /* ===== SECTIONS ===== */
-      .section {
-        padding: 3rem 2rem 5rem;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .section-header {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-      .section-header h2 {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(1.8rem, 4vw, 2.8rem);
-        margin-bottom: 0.5rem;
-      }
-      .section-header p {
-        color: var(--text-secondary);
-        font-size: 1rem;
-      }
-
-      /* ===== TIMELINE ===== */
-      .timeline {
-        position: relative;
-        padding-left: 30px;
-      }
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: 6px;
-        top: 0;
-        bottom: 0;
-        width: 3px;
-        background: linear-gradient(
-          to bottom,
-          var(--accent-gold) 0%,
-          var(--accent-rose) 25%,
-          var(--accent-mint) 50%,
-          var(--accent-sky) 75%,
-          var(--accent-purple) 100%
-        );
-        opacity: 0.4;
-        border-radius: 3px;
-      }
-
-      .day-card {
-        position: relative;
-        margin-bottom: 2.5rem;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.5s ease;
-      }
-      .day-card.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .day-dot {
-        position: absolute;
-        left: -30px;
-        top: 1.5rem;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: var(--accent-gold);
-        border: 3px solid var(--bg-dark);
-        box-shadow: 0 0 0 3px var(--accent-gold);
-        z-index: 2;
-      }
-      .day-card:nth-child(2) .day-dot {
-        background: var(--accent-rose);
-        box-shadow: 0 0 0 3px var(--accent-rose);
-      }
-      .day-card:nth-child(3) .day-dot {
-        background: var(--accent-mint);
-        box-shadow: 0 0 0 3px var(--accent-mint);
-      }
-      .day-card:nth-child(4) .day-dot {
-        background: var(--accent-sky);
-        box-shadow: 0 0 0 3px var(--accent-sky);
-      }
-      .day-card:nth-child(5) .day-dot {
-        background: var(--accent-gold);
-        box-shadow: 0 0 0 3px var(--accent-gold);
-      }
-      .day-card:nth-child(6) .day-dot {
-        background: var(--accent-rose);
-        box-shadow: 0 0 0 3px var(--accent-rose);
-      }
-      .day-card:nth-child(7) .day-dot {
-        background: var(--accent-purple);
-        box-shadow: 0 0 0 3px var(--accent-purple);
-      }
-      .day-card:nth-child(8) .day-dot {
-        background: var(--accent-mint);
-        box-shadow: 0 0 0 3px var(--accent-mint);
-      }
-      .day-card:nth-child(9) .day-dot {
-        background: var(--accent-sky);
-        box-shadow: 0 0 0 3px var(--accent-sky);
-      }
-      .day-card:nth-child(10) .day-dot {
-        background: var(--accent-gold);
-        box-shadow: 0 0 0 3px var(--accent-gold);
-      }
-      .day-card:nth-child(11) .day-dot {
-        background: var(--accent-rose);
-        box-shadow: 0 0 0 3px var(--accent-rose);
-      }
-      .day-card:nth-child(12) .day-dot {
-        background: var(--accent-purple);
-        box-shadow: 0 0 0 3px var(--accent-purple);
-      }
-      .day-card:nth-child(13) .day-dot {
-        background: var(--accent-mint);
-        box-shadow: 0 0 0 3px var(--accent-mint);
-      }
-
-      .day-content {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 1.8rem;
-        transition: all 0.3s ease;
-      }
-      .day-content:hover {
-        background: var(--bg-card-hover);
-        transform: translateY(-3px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-      }
-
-      .day-date {
-        display: inline-block;
-        padding: 0.25rem 1rem;
-        border-radius: 50px;
-        font-size: 0.7rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        margin-bottom: 0.6rem;
-      }
-      .day-card:nth-child(1) .day-date {
-        background: rgba(232, 197, 71, 0.12);
-        color: var(--accent-gold);
-      }
-      .day-card:nth-child(2) .day-date {
-        background: rgba(233, 69, 96, 0.12);
-        color: var(--accent-rose);
-      }
-      .day-card:nth-child(3) .day-date {
-        background: rgba(0, 217, 165, 0.12);
-        color: var(--accent-mint);
-      }
-      .day-card:nth-child(4) .day-date {
-        background: rgba(76, 201, 240, 0.12);
-        color: var(--accent-sky);
-      }
-      .day-card:nth-child(5) .day-date {
-        background: rgba(232, 197, 71, 0.12);
-        color: var(--accent-gold);
-      }
-      .day-card:nth-child(6) .day-date {
-        background: rgba(233, 69, 96, 0.12);
-        color: var(--accent-rose);
-      }
-      .day-card:nth-child(7) .day-date {
-        background: rgba(0, 217, 165, 0.12);
-        color: var(--accent-mint);
-      }
-      .day-card:nth-child(8) .day-date {
-        background: rgba(76, 201, 240, 0.12);
-        color: var(--accent-sky);
-      }
-      .day-card:nth-child(9) .day-date {
-        background: rgba(232, 197, 71, 0.12);
-        color: var(--accent-gold);
-      }
-      .day-card:nth-child(10) .day-date {
-        background: rgba(233, 69, 96, 0.12);
-        color: var(--accent-rose);
-      }
-      .day-card:nth-child(11) .day-date {
-        background: rgba(0, 217, 165, 0.12);
-        color: var(--accent-mint);
-      }
-      .day-card:nth-child(12) .day-date {
-        background: rgba(168, 85, 247, 0.12);
-        color: var(--accent-purple);
-      }
-      .day-card:nth-child(13) .day-date {
-        background: rgba(76, 201, 240, 0.12);
-        color: var(--accent-sky);
-      }
-
-      .day-title {
-        font-family: "Playfair Display", serif;
-        font-size: 1.4rem;
-        margin-bottom: 0.2rem;
-      }
-      .day-route {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        margin-bottom: 1.2rem;
-        font-style: italic;
-      }
-
-      .schedule {
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-      }
-      .schedule-item {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        padding: 0.7rem 1rem;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.02);
-        border-left: 3px solid transparent;
-      }
-
-      /* COLORES DE BORDE POR TIPO */
-      .schedule-item.drive {
-        border-left-color: var(--accent-mint);
-      }
-      .schedule-item.hotel {
-        border-left-color: var(--accent-rose);
-      }
-      .schedule-item.tour {
-        border-left-color: var(--accent-purple);
-      }
-      .schedule-item.museum {
-        border-left-color: var(--accent-sky);
-      }
-      .schedule-item.event {
-        border-left-color: var(--accent-gold);
-      }
-      .schedule-item.flight {
-        border-left-color: var(--accent-orange);
-      }
-      .schedule-item.free {
-        border-left-color: var(--accent-sky);
-      }
-      .schedule-item.optional {
-        border-left-color: var(--text-muted);
-        border-style: dashed;
-      }
-
-      .schedule-time {
-        font-family: "Playfair Display", serif;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--accent-gold);
-        white-space: nowrap;
-        min-width: 55px;
-      }
-      .schedule-text {
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-        line-height: 1.5;
-      }
-      .schedule-text strong {
-        color: var(--text-primary);
-        font-weight: 500;
-      }
-      .schedule-text a {
-        color: var(--text-primary);
-        text-decoration: none;
-        border-bottom: 1px dashed var(--accent-sky);
-        transition: all 0.2s ease;
-      }
-      .schedule-text a:hover {
-        color: var(--accent-sky);
-        border-bottom-style: solid;
-      }
-      .km-badge {
-        display: inline-block;
-        padding: 0.15rem 0.5rem;
-        background: rgba(0, 217, 165, 0.12);
-        color: var(--accent-mint);
-        border-radius: 5px;
-        font-size: 0.7rem;
-        font-weight: 600;
-        margin-left: 0.4rem;
-      }
-      .optional-badge {
-        display: inline-block;
-        padding: 0.15rem 0.5rem;
-        background: rgba(107, 107, 123, 0.15);
-        color: var(--text-muted);
-        border-radius: 5px;
-        font-size: 0.7rem;
-        font-weight: 600;
-        margin-left: 0.4rem;
-        border: 1px dashed var(--text-muted);
-      }
-
-      /* ===== HOTELS SECTION ===== */
-      .hotels-section {
-        background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0a18 100%);
-        padding: 5rem 2rem;
-      }
-      .hotels-grid {
-        max-width: 900px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1.5rem;
-      }
-      .hotel-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 1.5rem;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-      }
-      .hotel-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(
-          90deg,
-          var(--accent-gold),
-          var(--accent-rose)
-        );
-      }
-      .hotel-card:hover {
-        transform: translateY(-5px);
-        border-color: var(--accent-gold);
-      }
-      .hotel-card:nth-child(2)::before {
-        background: linear-gradient(
-          90deg,
-          var(--accent-rose),
-          var(--accent-mint)
-        );
-      }
-      .hotel-card:nth-child(3)::before {
-        background: linear-gradient(
-          90deg,
-          var(--accent-mint),
-          var(--accent-sky)
-        );
-      }
-      .hotel-card:nth-child(4)::before {
-        background: linear-gradient(
-          90deg,
-          var(--accent-sky),
-          var(--accent-purple)
-        );
-      }
-      .hotel-card:nth-child(5)::before {
-        background: linear-gradient(
-          90deg,
-          var(--accent-purple),
-          var(--accent-gold)
-        );
-      }
-      .hotel-card:nth-child(6)::before {
-        background: linear-gradient(
-          90deg,
-          var(--accent-gold),
-          var(--accent-rose)
-        );
-      }
-      .hotel-card:nth-child(7)::before {
-        background: linear-gradient(
-          90deg,
-          var(--accent-rose),
-          var(--accent-mint)
-        );
-      }
-
-      .hotel-name {
-        font-family: "Playfair Display", serif;
-        font-size: 1.2rem;
-        margin-bottom: 0.3rem;
-      }
-      .hotel-city {
-        font-size: 0.8rem;
-        color: var(--accent-gold);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 600;
-        margin-bottom: 0.8rem;
-      }
-      .hotel-dates {
-        font-size: 0.85rem;
-        color: var(--text-secondary);
-        margin-bottom: 0.5rem;
-      }
-      .hotel-address {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        line-height: 1.5;
-        padding-top: 0.5rem;
-        border-top: 1px solid var(--border);
-        margin-bottom: 1rem;
-      }
-      .hotel-links {
-        display: flex;
-        gap: 0.5rem;
-        margin-top: auto;
-      }
-      .hotel-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        flex: 1;
-        justify-content: center;
-      }
-      .hotel-btn.booking {
-        background: rgba(0, 113, 194, 0.15);
-        color: #0071c2;
-        border: 1px solid rgba(0, 113, 194, 0.3);
-      }
-      .hotel-btn.booking:hover {
-        background: rgba(0, 113, 194, 0.25);
-        transform: translateY(-2px);
-      }
-      .hotel-btn.maps {
-        background: rgba(234, 67, 53, 0.15);
-        color: #ea4335;
-        border: 1px solid rgba(234, 67, 53, 0.3);
-      }
-      .hotel-btn.maps:hover {
-        background: rgba(234, 67, 53, 0.25);
-        transform: translateY(-2px);
-      }
-      .hotel-btn svg {
-        width: 14px;
-        height: 14px;
-        fill: currentColor;
-      }
-
-      /* ===== TEAM SECTION ===== */
-      .team-section {
-        padding: 5rem 2rem;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-      .team-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-      .team-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 2rem 1.2rem;
-        text-align: center;
-        transition: all 0.3s ease;
-      }
-      .team-card:hover {
-        transform: translateY(-8px);
-      }
-      .team-card.ana {
-        border-color: var(--accent-gold);
-      }
-      .team-card.ana:hover {
-        box-shadow: 0 15px 40px rgba(232, 197, 71, 0.15);
-      }
-      .team-card.pepe {
-        border-color: var(--accent-rose);
-      }
-      .team-card.pepe:hover {
-        box-shadow: 0 15px 40px rgba(233, 69, 96, 0.15);
-      }
-      .team-card.nico {
-        border-color: var(--accent-mint);
-      }
-      .team-card.nico:hover {
-        box-shadow: 0 15px 40px rgba(0, 217, 165, 0.15);
-      }
-      .team-card.eva {
-        border-color: var(--accent-sky);
-      }
-      .team-card.eva:hover {
-        box-shadow: 0 15px 40px rgba(76, 201, 240, 0.15);
-      }
-
-      .team-avatar {
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        margin: 0 auto 1.2rem;
-        object-fit: cover;
-        border: 3px solid transparent;
-        transition: all 0.3s ease;
-      }
-      .team-card.ana .team-avatar {
-        border-color: var(--accent-gold);
-      }
-      .team-card.pepe .team-avatar {
-        border-color: var(--accent-rose);
-      }
-      .team-card.nico .team-avatar {
-        border-color: var(--accent-mint);
-      }
-      .team-card.eva .team-avatar {
-        border-color: var(--accent-sky);
-      }
-
-      .team-name {
-        font-family: "Playfair Display", serif;
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin-bottom: 0.3rem;
-      }
-      .team-role {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        margin-bottom: 0.8rem;
-        font-weight: 500;
-      }
-      .team-desc {
-        font-size: 0.85rem;
-        color: var(--text-secondary);
-        line-height: 1.6;
-        font-style: italic;
-      }
-      .team-card.ana .team-desc {
-        color: var(--accent-gold);
-      }
-      .team-card.pepe .team-desc {
-        color: var(--accent-rose);
-      }
-      .team-card.nico .team-desc {
-        color: var(--accent-mint);
-      }
-      .team-card.eva .team-desc {
-        color: var(--accent-sky);
-      }
-
-      /* ===== FOOTER ===== */
-      .footer {
-        text-align: center;
-        padding: 4rem 2rem;
-        background: linear-gradient(180deg, var(--bg-dark) 0%, #080815 100%);
-        border-top: 1px solid var(--border);
-      }
-      .footer-title {
-        font-family: "Playfair Display", serif;
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-        background: linear-gradient(
-          135deg,
-          var(--accent-gold),
-          var(--accent-rose)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      .footer-subtitle {
-        color: var(--text-muted);
-        font-size: 0.9rem;
-        margin-bottom: 2rem;
-      }
-      .footer .heart {
-        color: var(--accent-rose);
-      }
-      .footer-bottom {
-        margin-top: 2rem;
-        font-size: 0.8rem;
-        color: var(--text-muted);
-      }
-
-      /* ===== RESPONSIVE ===== */
-      @media (max-width: 768px) {
-        .team-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1rem;
-        }
-        .team-avatar {
-          width: 70px;
-          height: 70px;
-        }
-        .hero-stats {
-          gap: 1.5rem;
-        }
-        .stat-number {
-          font-size: 2.2rem;
-        }
-        .hotel-links {
-          flex-direction: column;
-        }
-      }
-      @media (max-width: 480px) {
-        .team-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      /* ===== RESPONSIVE ===== */
-      @media (max-width: 768px) {
-        .team-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1rem;
-        }
-        .team-avatar {
-          width: 70px;
-          height: 70px;
-        }
-        .hero-stats {
-          gap: 1.5rem;
-        }
-        .stat-number {
-          font-size: 2.2rem;
-        }
+        /* ===== HERO ===== */
         .hero {
-          min-height: 65vh;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #0d0d1a 0%, #141428 50%, #0f1a3a 100%);
+            overflow: hidden;
         }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(232,197,71,0.04) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .hero-content { position: relative; z-index: 2; padding: 2rem; }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(232,197,71,0.12);
+            border: 1px solid var(--accent-gold);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent-gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #f1f1f1 0%, var(--accent-gold) 50%, var(--accent-rose) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .stat { text-align: center; }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        .scroll-indicator svg {
+            width: 30px; height: 30px;
+            stroke: var(--accent-gold);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* ===== HERO BUTTONS ===== */
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid;
+            min-width: 100px;
+        }
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .btn-ana {
+            background: rgba(232,197,71,0.12);
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+        .btn-ana:hover {
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+        }
+        .btn-pepe {
+            background: rgba(233,69,96,0.12);
+            color: var(--accent-rose);
+            border-color: var(--accent-rose);
+        }
+        .btn-pepe:hover {
+            background: var(--accent-rose);
+            color: var(--bg-dark);
+        }
+        .btn-nico {
+            background: rgba(0,217,165,0.12);
+            color: var(--accent-mint);
+            border-color: var(--accent-mint);
+        }
+        .btn-nico:hover {
+            background: var(--accent-mint);
+            color: var(--bg-dark);
+        }
+        .btn-eva {
+            background: rgba(76,201,240,0.12);
+            color: var(--accent-sky);
+            border-color: var(--accent-sky);
+        }
+        .btn-eva:hover {
+            background: var(--accent-sky);
+            color: var(--bg-dark);
+        }
+        /* ===== CHIPS / LEYENDA ===== */
+        .chips-section {
+            padding: 2rem 2rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .chips-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+        .chip-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .chip.drive { background: rgba(0,217,165,0.12); color: var(--accent-mint); border-color: rgba(0,217,165,0.3); }
+        .chip.drive .chip-dot { background: var(--accent-mint); }
+        .chip.hotel { background: rgba(233,69,96,0.12); color: var(--accent-rose); border-color: rgba(233,69,96,0.3); }
+        .chip.hotel .chip-dot { background: var(--accent-rose); }
+        .chip.tour { background: rgba(168,85,247,0.12); color: var(--accent-purple); border-color: rgba(168,85,247,0.3); }
+        .chip.tour .chip-dot { background: var(--accent-purple); }
+        .chip.museum { background: rgba(76,201,240,0.12); color: var(--accent-sky); border-color: rgba(76,201,240,0.3); }
+        .chip.museum .chip-dot { background: var(--accent-sky); }
+        .chip.event { background: rgba(232,197,71,0.12); color: var(--accent-gold); border-color: rgba(232,197,71,0.3); }
+        .chip.event .chip-dot { background: var(--accent-gold); }
+        .chip.flight { background: rgba(255,107,53,0.12); color: var(--accent-orange); border-color: rgba(255,107,53,0.3); }
+        .chip.flight .chip-dot { background: var(--accent-orange); }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 3rem 2rem 5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-bottom: 0.5rem;
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom,
+                var(--accent-gold) 0%,
+                var(--accent-rose) 25%,
+                var(--accent-mint) 50%,
+                var(--accent-sky) 75%,
+                var(--accent-purple) 100%
+            );
+            opacity: 0.4;
+            border-radius: 3px;
+        }
+
+        .day-card {
+            position: relative;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+        .day-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .day-dot {
+            position: absolute;
+            left: -30px;
+            top: 1.5rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 0 3px var(--accent-gold);
+            z-index: 2;
+        }
+        .day-card:nth-child(2) .day-dot { background: var(--accent-rose); box-shadow: 0 0 0 3px var(--accent-rose); }
+        .day-card:nth-child(3) .day-dot { background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint); }
+        .day-card:nth-child(4) .day-dot { background: var(--accent-sky); box-shadow: 0 0 0 3px var(--accent-sky); }
+        .day-card:nth-child(5) .day-dot { background: var(--accent-gold); box-shadow: 0 0 0 3px var(--accent-gold); }
+        .day-card:nth-child(6) .day-dot { background: var(--accent-rose); box-shadow: 0 0 0 3px var(--accent-rose); }
+        .day-card:nth-child(7) .day-dot { background: var(--accent-purple); box-shadow: 0 0 0 3px var(--accent-purple); }
+        .day-card:nth-child(8) .day-dot { background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint); }
+        .day-card:nth-child(9) .day-dot { background: var(--accent-sky); box-shadow: 0 0 0 3px var(--accent-sky); }
+        .day-card:nth-child(10) .day-dot { background: var(--accent-gold); box-shadow: 0 0 0 3px var(--accent-gold); }
+        .day-card:nth-child(11) .day-dot { background: var(--accent-rose); box-shadow: 0 0 0 3px var(--accent-rose); }
+        .day-card:nth-child(12) .day-dot { background: var(--accent-purple); box-shadow: 0 0 0 3px var(--accent-purple); }
+        .day-card:nth-child(13) .day-dot { background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint); }
+
+        .day-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        .day-content:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .day-date {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.6rem;
+        }
+        .day-card:nth-child(1) .day-date { background: rgba(232,197,71,0.12); color: var(--accent-gold); }
+        .day-card:nth-child(2) .day-date { background: rgba(233,69,96,0.12); color: var(--accent-rose); }
+        .day-card:nth-child(3) .day-date { background: rgba(0,217,165,0.12); color: var(--accent-mint); }
+        .day-card:nth-child(4) .day-date { background: rgba(76,201,240,0.12); color: var(--accent-sky); }
+        .day-card:nth-child(5) .day-date { background: rgba(232,197,71,0.12); color: var(--accent-gold); }
+        .day-card:nth-child(6) .day-date { background: rgba(233,69,96,0.12); color: var(--accent-rose); }
+        .day-card:nth-child(7) .day-date { background: rgba(0,217,165,0.12); color: var(--accent-mint); }
+        .day-card:nth-child(8) .day-date { background: rgba(76,201,240,0.12); color: var(--accent-sky); }
+        .day-card:nth-child(9) .day-date { background: rgba(232,197,71,0.12); color: var(--accent-gold); }
+        .day-card:nth-child(10) .day-date { background: rgba(233,69,96,0.12); color: var(--accent-rose); }
+        .day-card:nth-child(11) .day-date { background: rgba(0,217,165,0.12); color: var(--accent-mint); }
+        .day-card:nth-child(12) .day-date { background: rgba(168,85,247,0.12); color: var(--accent-purple); }
+        .day-card:nth-child(13) .day-date { background: rgba(76,201,240,0.12); color: var(--accent-sky); }
+
+        .day-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.2rem;
+        }
+        .day-route {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-style: italic;
+        }
+
+        .schedule {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.7rem 1rem;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.02);
+            border-left: 3px solid transparent;
+        }
+
+        /* COLORES DE BORDE POR TIPO */
+        .schedule-item.drive { border-left-color: var(--accent-mint); }
+        .schedule-item.hotel { border-left-color: var(--accent-rose); }
+        .schedule-item.tour { border-left-color: var(--accent-purple); }
+        .schedule-item.museum { border-left-color: var(--accent-sky); }
+        .schedule-item.event { border-left-color: var(--accent-gold); }
+        .schedule-item.flight { border-left-color: var(--accent-orange); }
+        .schedule-item.free { border-left-color: var(--accent-sky); }
+        .schedule-item.optional { border-left-color: var(--text-muted); border-style: dashed; }
+
+        .schedule-time {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            white-space: nowrap;
+            min-width: 55px;
+        }
+        .schedule-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .schedule-text strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .km-badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            background: rgba(0,217,165,0.12);
+            color: var(--accent-mint);
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.4rem;
+        }
+        .optional-badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            background: rgba(107,107,123,0.15);
+            color: var(--text-muted);
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.4rem;
+            border: 1px dashed var(--text-muted);
+        }
+
+        /* ===== HOTELS SECTION ===== */
+        .hotels-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0a18 100%);
+            padding: 5rem 2rem;
+        }
+        .hotels-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .hotel-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .hotel-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-rose));
+        }
+        .hotel-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+        .hotel-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-rose), var(--accent-mint)); }
+        .hotel-card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-mint), var(--accent-sky)); }
+        .hotel-card:nth-child(4)::before { background: linear-gradient(90deg, var(--accent-sky), var(--accent-purple)); }
+        .hotel-card:nth-child(5)::before { background: linear-gradient(90deg, var(--accent-purple), var(--accent-gold)); }
+        .hotel-card:nth-child(6)::before { background: linear-gradient(90deg, var(--accent-gold), var(--accent-rose)); }
+        .hotel-card:nth-child(7)::before { background: linear-gradient(90deg, var(--accent-rose), var(--accent-mint)); }
+
+        .hotel-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        .hotel-city {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        .hotel-dates {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        .hotel-address {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ===== TEAM SECTION ===== */
         .team-section {
-          padding: 0rem 2rem;
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-      }
-      @media (max-width: 480px) {
         .team-grid {
-          grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
-      }
+        .team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-8px);
+        }
+        .team-card.ana { border-color: var(--accent-gold); }
+        .team-card.ana:hover { box-shadow: 0 15px 40px rgba(232,197,71,0.15); }
+        .team-card.pepe { border-color: var(--accent-rose); }
+        .team-card.pepe:hover { box-shadow: 0 15px 40px rgba(233,69,96,0.15); }
+        .team-card.nico { border-color: var(--accent-mint); }
+        .team-card.nico:hover { box-shadow: 0 15px 40px rgba(0,217,165,0.15); }
+        .team-card.eva { border-color: var(--accent-sky); }
+        .team-card.eva:hover { box-shadow: 0 15px 40px rgba(76,201,240,0.15); }
+
+        .team-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 0 auto 1.2rem;
+            object-fit: cover;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .team-card.ana .team-avatar { border-color: var(--accent-gold); }
+        .team-card.pepe .team-avatar { border-color: var(--accent-rose); }
+        .team-card.nico .team-avatar { border-color: var(--accent-mint); }
+        .team-card.eva .team-avatar { border-color: var(--accent-sky); }
+
+        .team-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        .team-role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+        .team-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+        .team-card.ana .team-desc { color: var(--accent-gold); }
+        .team-card.pepe .team-desc { color: var(--accent-rose); }
+        .team-card.nico .team-desc { color: var(--accent-mint); }
+        .team-card.eva .team-desc { color: var(--accent-sky); }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #080815 100%);
+            border-top: 1px solid var(--border);
+        }
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .footer-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .footer .heart { color: var(--accent-rose); }
+        .footer-bottom {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .team-avatar { width: 70px; height: 70px; }
+            .hero-stats { gap: 1.5rem; }
+            .stat-number { font-size: 2.2rem; }
+        }
+        @media (max-width: 480px) {
+            .team-grid { grid-template-columns: 1fr; }
+        }
     </style>
-    <base target="_blank" />
-  </head>
-  <body>
+<base target="_blank">
+</head>
+<body>
+
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-content">
-        <div class="hero-badge">Veranito Yeye</div>
-        <h1>Veranito Yeye</h1>
-        <p class="hero-subtitle">
-          Granada → Málaga → Amsterdam → Eindhoven → Colonia → Amsterdam →
-          Brujas → Gante → Bruselas → Amberes → Nossegem → Eindhoven
-        </p>
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-number">13</div>
-            <div class="stat-label">Días</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">7</div>
-            <div class="stat-label">Ciudades</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">5</div>
-            <div class="stat-label">Free Tours</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">~900</div>
-            <div class="stat-label">Km</div>
-          </div>
+        <div class="hero-content">
+            <div class="hero-badge">Veranito Yeye</div>
+            <h1>Veranito Yeye</h1>
+            <p class="hero-subtitle">Granada → Málaga → Amsterdam → Eindhoven → Colonia → Amsterdam → Brujas → Gante → Bruselas → Amberes → Nossegem → Eindhoven</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">13</div>
+                    <div class="stat-label">Días</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Ciudades</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Free Tours</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">~900</div>
+                    <div class="stat-label">Km</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="ana.html" class="hero-btn btn-ana">Ana</a>
+                <a href="pepe.html" class="hero-btn btn-pepe">Pepe</a>
+                <a href="nico.html" class="hero-btn btn-nico">Nico</a>
+                <a href="eva.html" class="hero-btn btn-eva">Eva</a>
+            </div>
         </div>
-      </div>
-      <div class="scroll-indicator">
-        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" /></svg>
-      </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
     </section>
 
     <!-- CHIPS / LEYENDA -->
     <section class="chips-section">
-      <div class="chips-grid">
-        <div class="chip drive"><span class="chip-dot"></span>Trayecto</div>
-        <div class="chip hotel">
-          <span class="chip-dot"></span>Hotel / Check-in
+        <div class="chips-grid">
+            <div class="chip drive"><span class="chip-dot"></span>Trayecto</div>
+            <div class="chip hotel"><span class="chip-dot"></span>Hotel / Check-in</div>
+            <div class="chip tour"><span class="chip-dot"></span>Free Tour</div>
+            <div class="chip museum"><span class="chip-dot"></span>Museo / Visita</div>
+            <div class="chip event"><span class="chip-dot"></span>Evento / Concierto</div>
+            <div class="chip flight"><span class="chip-dot"></span>Vuelo</div>
         </div>
-        <div class="chip tour"><span class="chip-dot"></span>Free Tour</div>
-        <div class="chip museum">
-          <span class="chip-dot"></span>Museo / Visita
-        </div>
-        <div class="chip event">
-          <span class="chip-dot"></span>Evento / Concierto
-        </div>
-        <div class="chip flight"><span class="chip-dot"></span>Vuelo</div>
-      </div>
     </section>
 
     <!-- TIMELINE -->
     <section class="section">
-      <div class="section-header">
-        <h2>Cronología del Viaje</h2>
-        <p>Del 17 al 29 de junio, día a día</p>
-      </div>
-
-      <div class="timeline">
-        <!-- DÍA 0 - GRASPOP -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Miércoles 17 Jun</div>
-            <div class="day-title">Salida de Granada</div>
-            <div class="day-route">
-              Granada → Málaga → Amsterdam → Eindhoven
-            </div>
-            <div class="schedule">
-              <div class="schedule-item flight">
-                <span class="schedule-time">11:30</span>
-                <span class="schedule-text"
-                  ><strong>Salida de Granada</strong> — 4h antes del vuelo</span
-                >
-              </div>
-              <div class="schedule-item flight">
-                <span class="schedule-time">15:55</span>
-                <span class="schedule-text"
-                  ><strong>Vuelo Málaga → Amsterdam</strong></span
-                >
-              </div>
-              <div class="schedule-item drive">
-                <span class="schedule-time">~19:00</span>
-                <span class="schedule-text"
-                  ><strong>Llegada a Amsterdam</strong> — Recoger coche de
-                  alquiler</span
-                >
-              </div>
-              <div class="schedule-item drive">
-                <span class="schedule-time">~20:00</span>
-                <span class="schedule-text"
-                  ><strong>Trayecto a Eindhoven</strong
-                  ><span class="km-badge">~125 km · 1h 30min</span></span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">~21:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1& target="_blank"><strong>Check-in Vakantiepark Molenvelden</strong></a> — 5
-                  noches</span
-                >
-              </div>
-            </div>
-          </div>
+        <div class="section-header">
+            <h2>Cronología del Viaje</h2>
+            <p>Del 17 al 29 de junio, día a día</p>
         </div>
 
-        <!-- DÍA 1 GRASPOP -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Jueves 18 Jun</div>
-            <div class="day-title">Graspop Metal Meeting</div>
-            <div class="day-route">Día 1 de festival en Dessel, Bélgica</div>
-            <div class="schedule">
-              <div class="schedule-item event">
-                <span class="schedule-time">Todo el día</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Kastelsedijk+2480+Dessel+Belgium" target="_blank"><strong>Graspop Metal Meeting</strong></a> — Dessel,
-                  Bélgica</span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">Noche</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1&" target="_blank"><strong>Vakantiepark Molenvelden</strong></a> — Veldhoven, Países
-                  Bajos</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="timeline">
 
-        <!-- DÍA 2 GRASPOP -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Viernes 19 Jun</div>
-            <div class="day-title">Graspop Metal Meeting</div>
-            <div class="day-route">Día 2 de festival en Dessel, Bélgica</div>
-            <div class="schedule">
-              <div class="schedule-item event">
-                <span class="schedule-time">Todo el día</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Kastelsedijk+2480+Dessel+Belgium" target="_blank"><strong>Graspop Metal Meeting</strong></a> — Día 2</span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">Noche</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1&" target="_blank"><strong>Vakantiepark Molenvelden</strong></a></span
-                >
-              </div>
+            <!-- DÍA 0 - GRASPOP -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Miércoles 17 Jun</div>
+                    <div class="day-title">Salida de Granada</div>
+                    <div class="day-route">Granada → Málaga → Amsterdam → Eindhoven</div>
+                    <div class="schedule">
+                        <div class="schedule-item flight">
+                            <span class="schedule-time">11:30</span>
+                            <span class="schedule-text"><strong>Salida de Granada</strong> — 4h antes del vuelo</span>
+                        </div>
+                        <div class="schedule-item flight">
+                            <span class="schedule-time">15:55</span>
+                            <span class="schedule-text"><strong>Vuelo Málaga → Amsterdam</strong></span>
+                        </div>
+                        <div class="schedule-item drive">
+                            <span class="schedule-time">~19:00</span>
+                            <span class="schedule-text"><strong>Llegada a Amsterdam</strong> — Recoger coche de alquiler</span>
+                        </div>
+                        <div class="schedule-item drive">
+                            <span class="schedule-time">~20:00</span>
+                            <span class="schedule-text"><strong>Trayecto a Eindhoven</strong><span class="km-badge">~125 km · 1h 30min</span></span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">~21:30</span>
+                            <span class="schedule-text"><strong>Check-in Vakantiepark Molenvelden</strong> — 5 noches</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- DÍA 3 GRASPOP -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Sábado 20 Jun</div>
-            <div class="day-title">Graspop Metal Meeting</div>
-            <div class="day-route">Día 3 de festival en Dessel, Bélgica</div>
-            <div class="schedule">
-              <div class="schedule-item event">
-                <span class="schedule-time">Todo el día</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Kastelsedijk+2480+Dessel+Belgium" target="_blank"><strong>Graspop Metal Meeting</strong></a> — Día 3</span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">Noche</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1&" target="_blank"><strong>Vakantiepark Molenvelden</strong></a></span
-                >
-              </div>
+            <!-- DÍA 1 GRASPOP -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Jueves 18 Jun</div>
+                    <div class="day-title">Graspop Metal Meeting</div>
+                    <div class="day-route">Día 1 de festival en Dessel, Bélgica</div>
+                    <div class="schedule">
+                        <div class="schedule-item event">
+                            <span class="schedule-time">Todo el día</span>
+                            <span class="schedule-text"><strong>Graspop Metal Meeting</strong> — Dessel, Bélgica</span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">Noche</span>
+                            <span class="schedule-text"><strong>Vakantiepark Molenvelden</strong> — Veldhoven, Países Bajos</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- DÍA 4 GRASPOP -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Domingo 21 Jun</div>
-            <div class="day-title">Graspop Metal Meeting</div>
-            <div class="day-route">Día 4 de festival en Dessel, Bélgica</div>
-            <div class="schedule">
-              <div class="schedule-item event">
-                <span class="schedule-time">Todo el día</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Kastelsedijk+2480+Dessel+Belgium" target="_blank"><strong>Graspop Metal Meeting</strong></a> — Último día</span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">Noche</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1&" target="_blank"><strong>Vakantiepark Molenvelden</strong></a></span
-                >
-              </div>
+            <!-- DÍA 2 GRASPOP -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Viernes 19 Jun</div>
+                    <div class="day-title">Graspop Metal Meeting</div>
+                    <div class="day-route">Día 2 de festival en Dessel, Bélgica</div>
+                    <div class="schedule">
+                        <div class="schedule-item event">
+                            <span class="schedule-time">Todo el día</span>
+                            <span class="schedule-text"><strong>Graspop Metal Meeting</strong> — Día 2</span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">Noche</span>
+                            <span class="schedule-text"><strong>Vakantiepark Molenvelden</strong></span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- DÍA 5 - RUTA -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Lunes 22 Jun</div>
-            <div class="day-title">Colonia & Amsterdam</div>
-            <div class="day-route">Eindhoven → Colonia → Amsterdam</div>
-            <div class="schedule">
-              <div class="schedule-item hotel">
-                <span class="schedule-time">10:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/nl/watervilla-luxe-6-persoons.es.html?aid=311090&label=watervilla-luxe-6-persoons-ADajUWaMGyW1Jq3TLRLx7AS704514573296%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atiaud-2382347442848%3Akwd-816489482609%3Alp9218568%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfNeh-lbHkPZmmnS6YrI2Ys&sid=2c3e0a0912ff64d81574761387fbc43c&age=0&all_sr_blocks=1032509113_430201634_2_0_0&checkin=2026-06-24&checkout=2026-06-25&dest_id=-2154589&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1032509113_430201634_2_0_0&hpos=1&matching_block_id=1032509113_430201634_2_0_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1032509113_430201634_2_0_0__35942&srepoch=1777380115&srpvid=7f8b5948c6700271&type=total&ucfs=1&" target="_blank"><strong>Check-out Vakantiepark Molenvelden</strong></a></span
-                >
-              </div>
-              <div class="schedule-item drive">
-                <span class="schedule-time">10:30</span>
-                <span class="schedule-text"
-                  ><strong>Salida Eindhoven</strong
-                  ><span class="km-badge">146 km · 1h 45min</span></span
-                >
-              </div>
-              <div class="schedule-item museum">
-                <span class="schedule-time">12:15</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Cologne+Cathedral+Domkloster+4+50667+Cologne+Germany" target="_blank"><strong>Catedral de Colonia</strong></a> — Visita y paseo por el
-                  centro</span
-                >
-              </div>
-              <div class="schedule-item drive">
-                <span class="schedule-time">15:00</span>
-                <span class="schedule-text"
-                  ><strong>Trayecto a Amsterdam</strong
-                  ><span class="km-badge">258 km · 2h 45min</span></span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">17:45</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/nl/the-concert.html" target="_blank"><strong>Check-in The Concert Hotel</strong></a> — 2 noches</span
-                >
-              </div>
+            <!-- DÍA 3 GRASPOP -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Sábado 20 Jun</div>
+                    <div class="day-title">Graspop Metal Meeting</div>
+                    <div class="day-route">Día 3 de festival en Dessel, Bélgica</div>
+                    <div class="schedule">
+                        <div class="schedule-item event">
+                            <span class="schedule-time">Todo el día</span>
+                            <span class="schedule-text"><strong>Graspop Metal Meeting</strong> — Día 3</span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">Noche</span>
+                            <span class="schedule-text"><strong>Vakantiepark Molenvelden</strong></span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- DÍA 6 -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Martes 23 Jun</div>
-            <div class="day-title">Amsterdam Completo</div>
-            <div class="day-route">Free Tour + Museos</div>
-            <div class="schedule">
-              <div class="schedule-item tour">
-                <span class="schedule-time">10:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Dam+Square+Amsterdam+Netherlands" target="_blank"><strong>Free Tour Amsterdam</strong></a> — ~2h 30min (punto de encuentro: Dam Square)</span
-                >
-              </div>
-              <div class="schedule-item museum">
-                <span class="schedule-time">14:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Anne+Frank+House+Westermarkt+20+1016+DK+Amsterdam" target="_blank"><strong>Museo Casa de Ana Frank</strong></a></span
-                >
-              </div>
-              <div class="schedule-item museum">
-                <span class="schedule-time">16:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Van+Gogh+Museum+Museumplein+6+1071+DJ+Amsterdam" target="_blank"><strong>Museo Van Gogh</strong></a></span
-                >
-              </div>
+            <!-- DÍA 4 GRASPOP -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Domingo 21 Jun</div>
+                    <div class="day-title">Graspop Metal Meeting</div>
+                    <div class="day-route">Día 4 de festival en Dessel, Bélgica</div>
+                    <div class="schedule">
+                        <div class="schedule-item event">
+                            <span class="schedule-time">Todo el día</span>
+                            <span class="schedule-text"><strong>Graspop Metal Meeting</strong> — Último día</span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">Noche</span>
+                            <span class="schedule-text"><strong>Vakantiepark Molenvelden</strong></span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- DÍA 7 -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Miércoles 24 Jun</div>
-            <div class="day-title">Llegada a Brujas</div>
-            <div class="day-route">Amsterdam → Brujas</div>
-            <div class="schedule">
-              <div class="schedule-item drive">
-                <span class="schedule-time">08:30</span>
-                <span class="schedule-text"
-                  ><strong>Salida Amsterdam</strong
-                  ><span class="km-badge">242 km · 2h 45min</span></span
-                >
-              </div>
-              <div class="schedule-item free">
-                <span class="schedule-time">11:15</span>
-                <span class="schedule-text"
-                  ><strong>Llegada a Brujas</strong> — Aparcar coche</span
-                >
-              </div>
-              <div class="schedule-item tour">
-                <span class="schedule-time">12:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Markt+8000+Brugge+Belgium" target="_blank"><strong>Free Tour Brujas</strong></a> — ~2h 30min (punto de encuentro: Grote Markt)</span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">16:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/be/snuffel-backpacker-hostel.html" target="_blank"><strong>Check-in Snuffel Youth Hostel</strong></a> — 1
-                  noche</span
-                >
-              </div>
+            <!-- DÍA 5 - RUTA -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Lunes 22 Jun</div>
+                    <div class="day-title">Colonia & Amsterdam</div>
+                    <div class="day-route">Eindhoven → Colonia → Amsterdam</div>
+                    <div class="schedule">
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">10:00</span>
+                            <span class="schedule-text"><strong>Check-out Vakantiepark Molenvelden</strong></span>
+                        </div>
+                        <div class="schedule-item drive">
+                            <span class="schedule-time">10:30</span>
+                            <span class="schedule-text"><strong>Salida Eindhoven</strong><span class="km-badge">146 km · 1h 45min</span></span>
+                        </div>
+                        <div class="schedule-item museum">
+                            <span class="schedule-time">12:15</span>
+                            <span class="schedule-text"><strong>Catedral de Colonia</strong> — Visita y paseo por el centro</span>
+                        </div>
+                        <div class="schedule-item drive">
+                            <span class="schedule-time">15:00</span>
+                            <span class="schedule-text"><strong>Trayecto a Amsterdam</strong><span class="km-badge">258 km · 2h 45min</span></span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">17:45</span>
+                            <span class="schedule-text"><strong>Check-in The Concert Hotel</strong> — 2 noches</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- DÍA 8 -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Jueves 25 Jun</div>
-            <div class="day-title">Día en Gante</div>
-            <div class="day-route">Brujas → Gante</div>
-            <div class="schedule">
-              <div class="schedule-item hotel">
-                <span class="schedule-time">09:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/be/snuffel-backpacker-hostel.html" target="_blank"><strong>Check-out Snuffel Youth Hostel</strong></a></span
-                >
-              </div>
-              <div class="schedule-item drive">
-                <span class="schedule-time">09:00</span>
-                <span class="schedule-text"
-                  ><strong>Salida Brujas</strong
-                  ><span class="km-badge">49 km · 42min</span></span
-                >
-              </div>
-              <div class="schedule-item free">
-                <span class="schedule-time">09:45</span>
-                <span class="schedule-text"
-                  ><strong>Llegada a Gante</strong> — Aparcar, café</span
-                >
-              </div>
-              <div class="schedule-item tour">
-                <span class="schedule-time">11:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Hostel+Uppelink+Sint-Michielsplein+21+9000+Gent+Belgium" target="_blank"><strong>Free Tour Gante</strong></a> — ~2h 30min (punto de encuentro: Hostel Uppelink)</span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">15:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/be/arriate.html" target="_blank"><strong>Check-in Hotel Arriate</strong></a> — 1 noche (check-in
-                  desde 15:00)</span
-                >
-              </div>
-              <div class="schedule-item museum">
-                <span class="schedule-time">16:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Gravensteen+Sint-Veerleplein+11+9000+Gent+Belgium" target="_blank"><strong>Castillo Gravensteen</strong></a></span
-                >
-              </div>
-              <div class="schedule-item museum">
-                <span class="schedule-time">17:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Saint+Bavo%27s+Cathedral+Sint-Baafsplein+9000+Gent+Belgium" target="_blank"><strong>Catedral San Bavón</strong></a> — Retablo Van Eyck</span
-                >
-              </div>
+            <!-- DÍA 6 -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Martes 23 Jun</div>
+                    <div class="day-title">Amsterdam Completo</div>
+                    <div class="day-route">Free Tour + Museos</div>
+                    <div class="schedule">
+                        <div class="schedule-item tour">
+                            <span class="schedule-time">10:30</span>
+                            <span class="schedule-text"><strong>Free Tour Amsterdam</strong> — ~2h 30min</span>
+                        </div>
+                        <div class="schedule-item museum">
+                            <span class="schedule-time">14:30</span>
+                            <span class="schedule-text"><strong>Museo Casa de Ana Frank</strong></span>
+                        </div>
+                        <div class="schedule-item museum">
+                            <span class="schedule-time">16:30</span>
+                            <span class="schedule-text"><strong>Museo Van Gogh</strong></span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- DÍA 9 -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Viernes 26 Jun</div>
-            <div class="day-title">Bruselas</div>
-            <div class="day-route">Gante → Bruselas</div>
-            <div class="schedule">
-              <div class="schedule-item hotel">
-                <span class="schedule-time">09:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/be/arriate.html" target="_blank"><strong>Check-out Hotel Arriate</strong></a></span
-                >
-              </div>
-              <div class="schedule-item drive">
-                <span class="schedule-time">09:00</span>
-                <span class="schedule-text"
-                  ><strong>Salida Gante</strong
-                  ><span class="km-badge">56 km · 41min</span></span
-                >
-              </div>
-              <div class="schedule-item free">
-                <span class="schedule-time">09:45</span>
-                <span class="schedule-text"
-                  ><strong>Llegada a Bruselas</strong> — Aparcar, café</span
-                >
-              </div>
-              <div class="schedule-item tour">
-                <span class="schedule-time">11:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Grand+Place+1000+Brussels+Belgium" target="_blank"><strong>Free Tour Bruselas</strong></a> — ~2h 30min (punto de encuentro: Grand Place, frente al Ayuntamiento)</span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">15:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/be/aviation-anderlecht.html" target="_blank"><strong>Check-in Hotel Aviation</strong></a> — Bruselas 1070, 2
-                  noches (check-in desde 15:00)</span
-                >
-              </div>
-              <div class="schedule-item museum">
-                <span class="schedule-time">16:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Grand+Place+1000+Brussels+Belgium" target="_blank"><strong>Grand Place & Manneken Pis</strong></a></span
-                >
-              </div>
-              <div class="schedule-item museum">
-                <span class="schedule-time">17:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Atomium+Square+de+l%27Atomium+1020+Brussels+Belgium" target="_blank"><strong>Atomium</strong></a> — Si da tiempo</span
-                >
-              </div>
+            <!-- DÍA 7 -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Miércoles 24 Jun</div>
+                    <div class="day-title">Llegada a Brujas</div>
+                    <div class="day-route">Amsterdam → Brujas</div>
+                    <div class="schedule">
+                        <div class="schedule-item drive">
+                            <span class="schedule-time">08:30</span>
+                            <span class="schedule-text"><strong>Salida Amsterdam</strong><span class="km-badge">242 km · 2h 45min</span></span>
+                        </div>
+                        <div class="schedule-item free">
+                            <span class="schedule-time">11:15</span>
+                            <span class="schedule-text"><strong>Llegada a Brujas</strong> — Aparcar coche</span>
+                        </div>
+                        <div class="schedule-item tour">
+                            <span class="schedule-time">12:30</span>
+                            <span class="schedule-text"><strong>Free Tour Brujas</strong> — ~2h 30min</span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">16:00</span>
+                            <span class="schedule-text"><strong>Check-in Snuffel Youth Hostel</strong> — 1 noche</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- DÍA 10 -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Sábado 27 Jun</div>
-            <div class="day-title">Excursión a Amberes (Opcional)</div>
-            <div class="day-route">Bruselas → Amberes → Bruselas</div>
-            <div class="schedule">
-              <div class="schedule-item optional">
-                <span class="schedule-time">08:30</span>
-                <span class="schedule-text"
-                  ><strong>Salida Bruselas</strong
-                  ><span class="optional-badge">OPCIONAL</span
-                  ><span class="km-badge">45 km · 44min</span></span
-                >
-              </div>
-              <div class="schedule-item optional">
-                <span class="schedule-time">09:15</span>
-                <span class="schedule-text"
-                  ><strong>Llegada a Amberes</strong> — Aparcar coche</span
-                >
-              </div>
-              <div class="schedule-item optional">
-                <span class="schedule-time">11:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Grote+Markt+2000+Antwerpen+Belgium" target="_blank"><strong>Free Tour Amberes</strong></a> — ~2h 30min (punto de encuentro: Grote Markt)</span
-                >
-              </div>
-              <div class="schedule-item optional">
-                <span class="schedule-time">15:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Antwerp+Central+Station+Koningin+Astridplein+27+2018+Antwerpen+Belgium" target="_blank"><strong>Estación Central & Grote Markt</strong></a></span
-                >
-              </div>
-              <div class="schedule-item optional">
-                <span class="schedule-time">17:30</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Rubenshuis+Wapper+9-11+2000+Antwerpen+Belgium" target="_blank"><strong>Casa de Rubens</strong></a> — Rubenshuis</span
-                >
-              </div>
-              <div class="schedule-item optional">
-                <span class="schedule-time">18:30</span>
-                <span class="schedule-text"
-                  ><strong>Vuelta a Bruselas</strong
-                  ><span class="km-badge">45 km · 44min</span></span
-                >
-              </div>
+            <!-- DÍA 8 -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Jueves 25 Jun</div>
+                    <div class="day-title">Día en Gante</div>
+                    <div class="day-route">Brujas → Gante</div>
+                    <div class="schedule">
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">09:00</span>
+                            <span class="schedule-text"><strong>Check-out Snuffel Youth Hostel</strong></span>
+                        </div>
+                        <div class="schedule-item drive">
+                            <span class="schedule-time">09:00</span>
+                            <span class="schedule-text"><strong>Salida Brujas</strong><span class="km-badge">49 km · 42min</span></span>
+                        </div>
+                        <div class="schedule-item free">
+                            <span class="schedule-time">09:45</span>
+                            <span class="schedule-text"><strong>Llegada a Gante</strong> — Aparcar, café</span>
+                        </div>
+                        <div class="schedule-item tour">
+                            <span class="schedule-time">11:30</span>
+                            <span class="schedule-text"><strong>Free Tour Gante</strong> — ~2h 30min</span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">15:00</span>
+                            <span class="schedule-text"><strong>Check-in Hotel Arriate</strong> — 1 noche (check-in desde 15:00)</span>
+                        </div>
+                        <div class="schedule-item museum">
+                            <span class="schedule-time">16:00</span>
+                            <span class="schedule-text"><strong>Castillo Gravensteen</strong></span>
+                        </div>
+                        <div class="schedule-item museum">
+                            <span class="schedule-time">17:30</span>
+                            <span class="schedule-text"><strong>Catedral San Bavón</strong> — Retablo Van Eyck</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- DÍA 11 -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Domingo 28 Jun</div>
-            <div class="day-title">Concierto en Werchter</div>
-            <div class="day-route">
-              Bruselas → Nossegem → Festivalpark Werchter
+            <!-- DÍA 9 -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Viernes 26 Jun</div>
+                    <div class="day-title">Bruselas</div>
+                    <div class="day-route">Gante → Bruselas</div>
+                    <div class="schedule">
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">09:00</span>
+                            <span class="schedule-text"><strong>Check-out Hotel Arriate</strong></span>
+                        </div>
+                        <div class="schedule-item drive">
+                            <span class="schedule-time">09:00</span>
+                            <span class="schedule-text"><strong>Salida Gante</strong><span class="km-badge">56 km · 41min</span></span>
+                        </div>
+                        <div class="schedule-item free">
+                            <span class="schedule-time">09:45</span>
+                            <span class="schedule-text"><strong>Llegada a Bruselas</strong> — Aparcar, café</span>
+                        </div>
+                        <div class="schedule-item tour">
+                            <span class="schedule-time">11:30</span>
+                            <span class="schedule-text"><strong>Free Tour Bruselas</strong> — ~2h 30min</span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">15:00</span>
+                            <span class="schedule-text"><strong>Check-in Hotel Aviation</strong> — Bruselas 1070, 2 noches (check-in desde 15:00)</span>
+                        </div>
+                        <div class="schedule-item museum">
+                            <span class="schedule-time">16:00</span>
+                            <span class="schedule-text"><strong>Grand Place & Manneken Pis</strong></span>
+                        </div>
+                        <div class="schedule-item museum">
+                            <span class="schedule-time">17:30</span>
+                            <span class="schedule-text"><strong>Atomium</strong> — Si da tiempo</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="schedule">
-              <div class="schedule-item free">
-                <span class="schedule-time">09:00</span>
-                <span class="schedule-text"
-                  ><strong>Mañana libre en Bruselas</strong> — Último
-                  paseo</span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">12:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/be/aviation-anderlecht.html" target="_blank"><strong>Check-out Hotel Aviation</strong></a></span
-                >
-              </div>
-              <div class="schedule-item drive">
-                <span class="schedule-time">12:30</span>
-                <span class="schedule-text"
-                  ><strong>Trayecto a Nossegem</strong
-                  ><span class="km-badge">14 km · 20min</span></span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">15:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/be/a-spacious-beautiful-apartment-amp-affordable.html" target="_blank"><strong>Check-in FANTASIA apartment</strong></a> — Check-in desde
-                  las 15:00</span
-                >
-              </div>
-              <div class="schedule-item event">
-                <span class="schedule-time">17:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.google.com/maps/search/?api=1&query=Festivalpark+Werchter+Haachtsesteenweg+23+3118+Rotselaar+Belgium" target="_blank"><strong>Concierto Festivalpark Werchter</strong></a> — Rotselaar,
-                  Bélgica</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- DÍA 12 -->
-        <div class="day-card">
-          <div class="day-dot"></div>
-          <div class="day-content">
-            <div class="day-date">Lunes 29 Jun</div>
-            <div class="day-title">Vuelta a Eindhoven</div>
-            <div class="day-route">Nossegem → Eindhoven</div>
-            <div class="schedule">
-              <div class="schedule-item free">
-                <span class="schedule-time">09:00</span>
-                <span class="schedule-text"
-                  ><strong>Despertar tranquilo</strong> — Último café</span
-                >
-              </div>
-              <div class="schedule-item hotel">
-                <span class="schedule-time">11:00</span>
-                <span class="schedule-text"
-                  ><a href="https://www.booking.com/hotel/be/a-spacious-beautiful-apartment-amp-affordable.html" target="_blank"><strong>Check-out FANTASIA apartment</strong></a> — Hasta las
-                  11:00</span
-                >
-              </div>
-              <div class="schedule-item drive">
-                <span class="schedule-time">11:30</span>
-                <span class="schedule-text"
-                  ><strong>Trayecto a Eindhoven</strong
-                  ><span class="km-badge">~140 km · 1h 30min</span></span
-                >
-              </div>
-              <div class="schedule-item free">
-                <span class="schedule-time">13:00</span>
-                <span class="schedule-text"
-                  ><strong>Devolver coche de alquiler</strong></span
-                >
-              </div>
-              <div class="schedule-item flight">
-                <span class="schedule-time">18:30</span>
-                <span class="schedule-text"
-                  ><strong>Vuelo de vuelta</strong> — Aeropuerto Eindhoven
-                  (EIN)</span
-                >
-              </div>
+            <!-- DÍA 10 -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Sábado 27 Jun</div>
+                    <div class="day-title">Excursión a Amberes (Opcional)</div>
+                    <div class="day-route">Bruselas → Amberes → Bruselas</div>
+                    <div class="schedule">
+                        <div class="schedule-item optional">
+                            <span class="schedule-time">08:30</span>
+                            <span class="schedule-text"><strong>Salida Bruselas</strong><span class="optional-badge">OPCIONAL</span><span class="km-badge">45 km · 44min</span></span>
+                        </div>
+                        <div class="schedule-item optional">
+                            <span class="schedule-time">09:15</span>
+                            <span class="schedule-text"><strong>Llegada a Amberes</strong> — Aparcar coche</span>
+                        </div>
+                        <div class="schedule-item optional">
+                            <span class="schedule-time">11:30</span>
+                            <span class="schedule-text"><strong>Free Tour Amberes</strong> — ~2h 30min</span>
+                        </div>
+                        <div class="schedule-item optional">
+                            <span class="schedule-time">15:30</span>
+                            <span class="schedule-text"><strong>Estación Central & Grote Markt</strong></span>
+                        </div>
+                        <div class="schedule-item optional">
+                            <span class="schedule-time">17:30</span>
+                            <span class="schedule-text"><strong>Casa de Rubens</strong> — Rubenshuis</span>
+                        </div>
+                        <div class="schedule-item optional">
+                            <span class="schedule-time">18:30</span>
+                            <span class="schedule-text"><strong>Vuelta a Bruselas</strong><span class="km-badge">45 km · 44min</span></span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <!-- DÍA 11 -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Domingo 28 Jun</div>
+                    <div class="day-title">Concierto en Werchter</div>
+                    <div class="day-route">Bruselas → Nossegem → Festivalpark Werchter</div>
+                    <div class="schedule">
+                        <div class="schedule-item free">
+                            <span class="schedule-time">09:00</span>
+                            <span class="schedule-text"><strong>Mañana libre en Bruselas</strong> — Último paseo</span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">12:00</span>
+                            <span class="schedule-text"><strong>Check-out Hotel Aviation</strong></span>
+                        </div>
+                        <div class="schedule-item drive">
+                            <span class="schedule-time">12:30</span>
+                            <span class="schedule-text"><strong>Trayecto a Nossegem</strong><span class="km-badge">14 km · 20min</span></span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">15:00</span>
+                            <span class="schedule-text"><strong>Check-in FANTASIA apartment</strong> — Check-in desde las 15:00</span>
+                        </div>
+                        <div class="schedule-item event">
+                            <span class="schedule-time">17:00</span>
+                            <span class="schedule-text"><strong>Concierto Festivalpark Werchter</strong> — Rotselaar, Bélgica</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DÍA 12 -->
+            <div class="day-card">
+                <div class="day-dot"></div>
+                <div class="day-content">
+                    <div class="day-date">Lunes 29 Jun</div>
+                    <div class="day-title">Vuelta a Eindhoven</div>
+                    <div class="day-route">Nossegem → Eindhoven</div>
+                    <div class="schedule">
+                        <div class="schedule-item free">
+                            <span class="schedule-time">09:00</span>
+                            <span class="schedule-text"><strong>Despertar tranquilo</strong> — Último café</span>
+                        </div>
+                        <div class="schedule-item hotel">
+                            <span class="schedule-time">11:00</span>
+                            <span class="schedule-text"><strong>Check-out FANTASIA apartment</strong> — Hasta las 11:00</span>
+                        </div>
+                        <div class="schedule-item drive">
+                            <span class="schedule-time">11:30</span>
+                            <span class="schedule-text"><strong>Trayecto a Eindhoven</strong><span class="km-badge">~140 km · 1h 30min</span></span>
+                        </div>
+                        <div class="schedule-item free">
+                            <span class="schedule-time">13:00</span>
+                            <span class="schedule-text"><strong>Devolver coche de alquiler</strong></span>
+                        </div>
+                        <div class="schedule-item flight">
+                            <span class="schedule-time">18:30</span>
+                            <span class="schedule-text"><strong>Vuelo de vuelta</strong> — Aeropuerto Eindhoven (EIN)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
     </section>
 
     <!-- HOTELES -->
     <section class="hotels-section">
-      <div class="section-header">
-        <h2>Hoteles</h2>
-        <p>Direcciones y fechas de cada alojamiento</p>
-      </div>
-      <div class="hotels-grid">
-        <div class="hotel-card">
-          <div class="hotel-name">Vakantiepark Molenvelden</div>
-          <div class="hotel-city">Veldhoven · Países Bajos</div>
-          <div class="hotel-dates">17–22 Junio · 5 noches</div>
-          <div class="hotel-address">
-            25 Banstraat<br />5506 LA Veldhoven, Países Bajos
-          </div>
-          <div class="hotel-links">
-            <a href="https://www.booking.com/hotel/nl/vakantiepark-molenvelden.html" target="_blank" class="hotel-btn booking">
-              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-              Booking
-            </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Vakantiepark+Molenvelden+Banstraat+25+5506+LA+Veldhoven+Netherlands" target="_blank" class="hotel-btn maps">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
+        <div class="section-header">
+            <h2>Hoteles</h2>
+            <p>Direcciones y fechas de cada alojamiento</p>
         </div>
-        <div class="hotel-card">
-          <div class="hotel-name">The Concert Hotel</div>
-          <div class="hotel-city">Amsterdam · Países Bajos</div>
-          <div class="hotel-dates">22–24 Junio · 2 noches</div>
-          <div class="hotel-address">
-            De Lairessestraat 7<br />1075 HH Amsterdam, Países Bajos
-          </div>
-          <div class="hotel-links">
-            <a href="https://www.booking.com/hotel/nl/the-concert.html" target="_blank" class="hotel-btn booking">
-              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-              Booking
-            </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=The+Concert+Hotel+De+Lairessestraat+7+1075+HH+Amsterdam+Netherlands" target="_blank" class="hotel-btn maps">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
+        <div class="hotels-grid">
+            <div class="hotel-card">
+                <div class="hotel-name">Vakantiepark Molenvelden</div>
+                <div class="hotel-city">Veldhoven · Países Bajos</div>
+                <div class="hotel-dates">17–22 Junio · 5 noches</div>
+                <div class="hotel-address">25 Banstraat<br>5506 LA Veldhoven, Países Bajos</div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-name">The Concert Hotel</div>
+                <div class="hotel-city">Amsterdam · Países Bajos</div>
+                <div class="hotel-dates">22–24 Junio · 2 noches</div>
+                <div class="hotel-address">De Lairessestraat 7<br>1075 HH Amsterdam, Países Bajos</div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-name">Snuffel Youth Hostel</div>
+                <div class="hotel-city">Brujas · Bélgica</div>
+                <div class="hotel-dates">24–25 Junio · 1 noche</div>
+                <div class="hotel-address">Ezelstraat 42<br>Centro histórico de Brujas, 8000 Brujas, Bélgica</div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-name">Hotel Arriate</div>
+                <div class="hotel-city">Lochristi · Bélgica</div>
+                <div class="hotel-dates">25–26 Junio · 1 noche</div>
+                <div class="hotel-address">92 Antwerpse Steenweg<br>9080 Lochristi, Bélgica</div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-name">Hotel Aviation</div>
+                <div class="hotel-city">Bruselas 1070 · Bélgica</div>
+                <div class="hotel-dates">26–28 Junio · 2 noches</div>
+                <div class="hotel-address">Rue Auguste Gevaert 47<br>1070 Anderlecht, Bruselas, Bélgica</div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-name">FANTASIA apartment</div>
+                <div class="hotel-city">Nossegem · Bélgica</div>
+                <div class="hotel-dates">28–29 Junio · 1 noche</div>
+                <div class="hotel-address">Leuvensesteenweg 626, 2nd floor<br>1930 Nossegem, Bélgica</div>
+            </div>
         </div>
-        <div class="hotel-card">
-          <div class="hotel-name">Snuffel Youth Hostel</div>
-          <div class="hotel-city">Brujas · Bélgica</div>
-          <div class="hotel-dates">24–25 Junio · 1 noche</div>
-          <div class="hotel-address">
-            Ezelstraat 42<br />Centro histórico de Brujas, 8000 Brujas, Bélgica
-          </div>
-          <div class="hotel-links">
-            <a href="https://www.booking.com/hotel/be/snuffel-backpacker-hostel.html" target="_blank" class="hotel-btn booking">
-              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-              Booking
-            </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Snuffel+Youth+Hostel+Ezelstraat+42+8000+Brugge+Belgium" target="_blank" class="hotel-btn maps">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-        <div class="hotel-card">
-          <div class="hotel-name">Hotel Arriate</div>
-          <div class="hotel-city">Lochristi · Bélgica</div>
-          <div class="hotel-dates">25–26 Junio · 1 noche</div>
-          <div class="hotel-address">
-            92 Antwerpse Steenweg<br />9080 Lochristi, Bélgica
-          </div>
-          <div class="hotel-links">
-            <a href="https://www.booking.com/hotel/be/arriate.html" target="_blank" class="hotel-btn booking">
-              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-              Booking
-            </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Arriate+Antwerpse+Steenweg+92+9080+Lochristi+Belgium" target="_blank" class="hotel-btn maps">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-        <div class="hotel-card">
-          <div class="hotel-name">Hotel Aviation</div>
-          <div class="hotel-city">Bruselas 1070 · Bélgica</div>
-          <div class="hotel-dates">26–28 Junio · 2 noches</div>
-          <div class="hotel-address">
-            Rue Auguste Gevaert 47<br />1070 Anderlecht, Bruselas, Bélgica
-          </div>
-          <div class="hotel-links">
-            <a href="https://www.booking.com/hotel/be/aviation-anderlecht.html" target="_blank" class="hotel-btn booking">
-              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-              Booking
-            </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Aviation+Rue+Auguste+Gevaert+47+1070+Anderlecht+Brussels+Belgium" target="_blank" class="hotel-btn maps">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-        <div class="hotel-card">
-          <div class="hotel-name">FANTASIA apartment</div>
-          <div class="hotel-city">Nossegem · Bélgica</div>
-          <div class="hotel-dates">28–29 Junio · 1 noche</div>
-          <div class="hotel-address">
-            Leuvensesteenweg 626, 2nd floor<br />1930 Nossegem, Bélgica
-          </div>
-          <div class="hotel-links">
-            <a href="https://www.booking.com/hotel/be/a-spacious-beautiful-apartment-amp-affordable.html" target="_blank" class="hotel-btn booking">
-              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-              Booking
-            </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Leuvensesteenweg+626+1930+Nossegem+Belgium" target="_blank" class="hotel-btn maps">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              Maps
-            </a>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- EQUIPO -->
     <section class="team-section">
-      <div class="section-header">
-        <h2>Equipo Veranito Yeye</h2>
-        <p>Quién hace qué en este viaje</p>
-      </div>
-      <div class="team-grid">
-        <div class="team-card ana">
-          <img
-            src="img/ana.jpg"
-            alt="Ana"
-            class="team-avatar"
-            onerror="
-              this.src =
-                'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%2290%22><rect width=%2290%22 height=%2290%22 fill=%22%23e8c54722%22/><text x=%2245%22 y=%2255%22 font-size=%2236%22 fill=%22%23e8c547%22 text-anchor=%22middle%22 font-family=%22serif%22>A</text></svg>'
-            "
-          />
-          <div class="team-name">Ana</div>
-          <div class="team-role">CEO & Fundadora</div>
-          <div class="team-desc">
-            Busca hoteles, reserva tours, planifica rutas, gestiona parking,
-            compra entradas, coordina horarios y se asegura de que nadie se
-            quede atrás. Literalmente lo hace TODO.
-          </div>
+        <div class="section-header">
+            <h2>Equipo Veranito Yeye</h2>
+            <p>Quién hace qué en este viaje</p>
         </div>
-        <div class="team-card pepe">
-          <img
-            src="img/pepe.jpg"
-            alt="Pepe"
-            class="team-avatar"
-            onerror="
-              this.src =
-                'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%2290%22><rect width=%2290%22 height=%2290%22 fill=%22%23e9456022%22/><text x=%2245%22 y=%2255%22 font-size=%2236%22 fill=%22%23e94560%22 text-anchor=%22middle%22 font-family=%22serif%22>P</text></svg>'
-            "
-          />
-          <div class="team-name">Pepe</div>
-          <div class="team-role">Consultor de Buenos Días</div>
-          <div class="team-desc">
-            Su contribución al viaje se limita a saludar por la mañana. No ha
-            reservado nada, no ha buscado nada, no sabe ni en qué país estamos.
-          </div>
+        <div class="team-grid">
+            <div class="team-card ana">
+                <img src="img/ana.jpg" alt="Ana" class="team-avatar" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%2290%22><rect width=%2290%22 height=%2290%22 fill=%22%23e8c54722%22/><text x=%2245%22 y=%2255%22 font-size=%2236%22 fill=%22%23e8c547%22 text-anchor=%22middle%22 font-family=%22serif%22>A</text></svg>'">
+                <div class="team-name">Ana</div>
+                <div class="team-role">CEO & Fundadora</div>
+                <div class="team-desc">Busca hoteles, reserva tours, planifica rutas, gestiona parking, compra entradas, coordina horarios y se asegura de que nadie se quede atrás. Literalmente lo hace TODO.</div>
+            </div>
+            <div class="team-card pepe">
+                <img src="img/pepe.jpg" alt="Pepe" class="team-avatar" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%2290%22><rect width=%2290%22 height=%2290%22 fill=%22%23e9456022%22/><text x=%2245%22 y=%2255%22 font-size=%2236%22 fill=%22%23e94560%22 text-anchor=%22middle%22 font-family=%22serif%22>P</text></svg>'">
+                <div class="team-name">Pepe</div>
+                <div class="team-role">Consultor de Buenos Días</div>
+                <div class="team-desc">Su contribución al viaje se limita a saludar por la mañana. No ha reservado nada, no ha buscado nada, no sabe ni en qué país estamos.</div>
+            </div>
+            <div class="team-card nico">
+                <img src="img/nico.jpg" alt="Nico" class="team-avatar" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%2290%22><rect width=%2290%22 height=%2290%22 fill=%22%2300d9a522%22/><text x=%2245%22 y=%2255%22 font-size=%2236%22 fill=%22%2300d9a5%22 text-anchor=%22middle%22 font-family=%22serif%22>N</text></svg>'">
+                <div class="team-name">Nico</div>
+                <div class="team-role">Especialista en Buenas Tardes</div>
+                <div class="team-desc">Aparece sobre las 14:00 para decir "buenas tardes". Eso es todo. Cero aportación logística. Ni siquiera sabe el nombre del hotel de hoy.</div>
+            </div>
+            <div class="team-card eva">
+                <img src="img/eva.jpg" alt="Eva" class="team-avatar" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%2290%22><rect width=%2290%22 height=%2290%22 fill=%22%234cc9f022%22/><text x=%2245%22 y=%2255%22 font-size=%2236%22 fill=%22%234cc9f0%22 text-anchor=%22middle%22 font-family=%22serif%22>E</text></svg>'">
+                <div class="team-name">Eva</div>
+                <div class="team-role">Directora de Buenas Noches</div>
+                <div class="team-desc">Se despierta a las 20:00 para desear buenas noches. No ha visto ni una catedral, ni un museo, ni sabe qué ciudad visitamos mañana. Pero es majísima.</div>
+            </div>
         </div>
-        <div class="team-card nico">
-          <img
-            src="img/nico.jpg"
-            alt="Nico"
-            class="team-avatar"
-            onerror="
-              this.src =
-                'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%2290%22><rect width=%2290%22 height=%2290%22 fill=%22%2300d9a522%22/><text x=%2245%22 y=%2255%22 font-size=%2236%22 fill=%22%2300d9a5%22 text-anchor=%22middle%22 font-family=%22serif%22>N</text></svg>'
-            "
-          />
-          <div class="team-name">Nico</div>
-          <div class="team-role">Especialista en Buenas Tardes</div>
-          <div class="team-desc">
-            Aparece sobre las 14:00 para decir "buenas tardes". Eso es todo.
-            Cero aportación logística. Ni siquiera sabe el nombre del hotel de
-            hoy.
-          </div>
-        </div>
-        <div class="team-card eva">
-          <img
-            src="img/eva.jpg"
-            alt="Eva"
-            class="team-avatar"
-            onerror="
-              this.src =
-                'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%2290%22><rect width=%2290%22 height=%2290%22 fill=%22%234cc9f022%22/><text x=%2245%22 y=%2255%22 font-size=%2236%22 fill=%22%234cc9f0%22 text-anchor=%22middle%22 font-family=%22serif%22>E</text></svg>'
-            "
-          />
-          <div class="team-name">Eva</div>
-          <div class="team-role">Directora de Buenas Noches</div>
-          <div class="team-desc">
-            Se despierta a las 20:00 para desear buenas noches. No ha visto ni
-            una catedral, ni un museo, ni sabe qué ciudad visitamos mañana. Pero
-            es majísima.
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-      <div class="footer-title">Veranito Yeye</div>
-      <div class="footer-subtitle">
-        Asociación de Viajes Responsables (bueno, de Ana)
-      </div>
-      <p>Viaje realizado por <strong>Veranito Yeye Asociación</strong></p>
-      <p style="margin-top: 0.3rem">
-        17–29 Junio 2026 · ~900 km · 2 conciertos inolvidables
-      </p>
-      <div class="footer-bottom">
-        <p>
-          Hecho con <span class="heart">♥</span> por Ana · El resto solo da por
-          saco
-        </p>
-      </div>
+        <div class="footer-title">Veranito Yeye</div>
+        <div class="footer-subtitle">Asociación de Viajes Responsables (bueno, de Ana)</div>
+        <p>Viaje realizado por <strong>Veranito Yeye Asociación</strong></p>
+        <p style="margin-top: 0.3rem;">17–29 Junio 2026 · Benelux · ~900 km · 2 conciertos inolvidables</p>
+        <div class="footer-bottom">
+            <p>Hecho con <span class="heart">♥</span> por Ana · El resto solo saludó</p>
+        </div>
     </footer>
 
     <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) entry.target.classList.add("visible");
-          });
-        },
-        { threshold: 0.1 },
-      );
-      document
-        .querySelectorAll(".day-card")
-        .forEach((card) => observer.observe(card));
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.day-card').forEach(card => observer.observe(card));
 
-      document
-        .querySelector(".scroll-indicator")
-        .addEventListener("click", () => {
-          document
-            .querySelector(".section")
-            .scrollIntoView({ behavior: "smooth" });
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('.section').scrollIntoView({ behavior: 'smooth' });
         });
     </script>
-  </body>
+
+</body>
 </html>
