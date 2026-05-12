@@ -9,11 +9,11 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "icon-193.png",
+      "src": "icono-519.png",
       "type": "image/png"
     },
     {
-      "src": "icon-519.png",
+      "src": "icono-193.png",
       "type": "image/png"
     }
   ]
