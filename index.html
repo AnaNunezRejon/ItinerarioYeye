@@ -618,6 +618,19 @@
         @media (max-width: 480px) {
             .team-grid { grid-template-columns: 1fr; }
         }
+
+        /* ===== CITY LINKS ===== */
+        .city-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent-gold);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .city-link:hover {
+            color: var(--accent-gold);
+            border-bottom-style: solid;
+        }
     </style>
 <base target="_blank">
 </head>
@@ -628,7 +641,20 @@
         <div class="hero-content">
             <div class="hero-badge">Veranito Yeye</div>
             <h1>Veranito Yeye</h1>
-            <p class="hero-subtitle">Granada → Málaga → Amsterdam → Eindhoven → Colonia → Amsterdam → Brujas → Gante → Bruselas → Amberes → Nossegem → Eindhoven</p>
+            <p class="hero-subtitle">
+                <a href="#granada" class="city-link">Granada</a> → 
+                <a href="#malaga" class="city-link">Málaga</a> → 
+                <a href="#amsterdam" class="city-link">Amsterdam</a> → 
+                <a href="#eindhoven" class="city-link">Eindhoven</a> → 
+                <a href="#colonia" class="city-link">Colonia</a> → 
+                <a href="#amsterdam" class="city-link">Amsterdam</a> → 
+                <a href="#brujas" class="city-link">Brujas</a> → 
+                <a href="#gante" class="city-link">Gante</a> → 
+                <a href="#bruselas" class="city-link">Bruselas</a> → 
+                <a href="#amberes" class="city-link">Amberes</a> → 
+                <a href="#nossegem" class="city-link">Nossegem</a> → 
+                <a href="#eindhoven" class="city-link">Eindhoven</a>
+            </p>
             <div class="hero-stats">
                 <div class="stat">
                     <div class="stat-number">13</div>
@@ -683,7 +709,7 @@
             <!-- DÍA 0 - GRASPOP -->
             <div class="day-card">
                 <div class="day-dot"></div>
-                <div class="day-content">
+                <div class="day-content" id="eindhoven">
                     <div class="day-date">Miércoles 17 Jun</div>
                     <div class="day-title">Salida de Granada</div>
                     <div class="day-route">Granada → Málaga → Amsterdam → Eindhoven</div>
@@ -795,7 +821,7 @@
             <!-- DÍA 5 - RUTA -->
             <div class="day-card">
                 <div class="day-dot"></div>
-                <div class="day-content">
+                <div class="day-content" id="colonia">
                     <div class="day-date">Lunes 22 Jun</div>
                     <div class="day-title">Colonia & Amsterdam</div>
                     <div class="day-route">Eindhoven → Colonia → Amsterdam</div>
@@ -827,7 +853,7 @@
             <!-- DÍA 6 -->
             <div class="day-card">
                 <div class="day-dot"></div>
-                <div class="day-content">
+                <div class="day-content" id="amsterdam">
                     <div class="day-date">Martes 23 Jun</div>
                     <div class="day-title">Amsterdam Completo</div>
                     <div class="day-route">Free Tour + Museos</div>
@@ -851,7 +877,7 @@
             <!-- DÍA 7 -->
             <div class="day-card">
                 <div class="day-dot"></div>
-                <div class="day-content">
+                <div class="day-content" id="brujas">
                     <div class="day-date">Miércoles 24 Jun</div>
                     <div class="day-title">Llegada a Brujas</div>
                     <div class="day-route">Amsterdam → Brujas</div>
@@ -879,7 +905,7 @@
             <!-- DÍA 8 -->
             <div class="day-card">
                 <div class="day-dot"></div>
-                <div class="day-content">
+                <div class="day-content" id="gante">
                     <div class="day-date">Jueves 25 Jun</div>
                     <div class="day-title">Día en Gante</div>
                     <div class="day-route">Brujas → Gante</div>
@@ -919,7 +945,7 @@
             <!-- DÍA 9 -->
             <div class="day-card">
                 <div class="day-dot"></div>
-                <div class="day-content">
+                <div class="day-content" id="bruselas">
                     <div class="day-date">Viernes 26 Jun</div>
                     <div class="day-title">Bruselas</div>
                     <div class="day-route">Gante → Bruselas</div>
@@ -959,7 +985,7 @@
             <!-- DÍA 10 -->
             <div class="day-card">
                 <div class="day-dot"></div>
-                <div class="day-content">
+                <div class="day-content" id="amberes">
                     <div class="day-date">Sábado 27 Jun</div>
                     <div class="day-title">Excursión a Amberes (Opcional)</div>
                     <div class="day-route">Bruselas → Amberes → Bruselas</div>
@@ -995,7 +1021,7 @@
             <!-- DÍA 11 -->
             <div class="day-card">
                 <div class="day-dot"></div>
-                <div class="day-content">
+                <div class="day-content" id="nossegem">
                     <div class="day-date">Domingo 28 Jun</div>
                     <div class="day-title">Concierto en Werchter</div>
                     <div class="day-route">Bruselas → Nossegem → Festivalpark Werchter</div>
