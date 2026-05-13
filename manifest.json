@@ -2,7 +2,7 @@
   "name": "Veranito Yeye",
   "short_name": "Veranito Yeye",
   "description": "Ruta 2026 — Graspop, Amsterdam, Brujas, Gante, Bruselas y más",
-  "start_url": "/VeranitoYeYe",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0d0d1a",
   "theme_color": "#0d0d1a",
