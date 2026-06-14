@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nico — Graspop Metal Meeting 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0d0d1a;
+            --bg-card: #141428;
+            --bg-card-hover: #1c1c3a;
+            --accent-gold: #e8c547;
+            --accent-rose: #e94560;
+            --accent-mint: #00d9a5;
+            --accent-sky: #4cc9f0;
+            --accent-purple: #a855f7;
+            --accent-orange: #ff6b35;
+            --accent-yellow: #f0c040;
+            --text-primary: #f1f1f1;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6b6b7b;
+            --border: rgba(255,255,255,0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0,217,165,0.12);
+            border: 1px solid var(--accent-mint);
+            border-radius: 50px;
+            color: var(--accent-mint);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background: var(--accent-mint);
+            color: var(--bg-dark);
+        }
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+        .header-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-mint);
+            object-fit: cover;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0a18 100%);
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-mint), var(--accent-sky));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* ===== LEGEND ===== */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            padding: 1rem 2rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .legend-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 2px solid;
+        }
+        .legend-chip .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .legend-chip.north { border-color: var(--accent-sky); color: var(--accent-sky); background: rgba(76,201,240,0.08); }
+        .legend-chip.north .dot { background: var(--accent-sky); }
+        .legend-chip.south { border-color: var(--accent-purple); color: var(--accent-purple); background: rgba(168,85,247,0.08); }
+        .legend-chip.south .dot { background: var(--accent-purple); }
+        .legend-chip.marquee { border-color: var(--accent-rose); color: var(--accent-rose); background: rgba(233,69,96,0.08); }
+        .legend-chip.marquee .dot { background: var(--accent-rose); }
+        .legend-chip.jupiler { border-color: var(--accent-orange); color: var(--accent-orange); background: rgba(255,107,53,0.08); }
+        .legend-chip.jupiler .dot { background: var(--accent-orange); }
+        .legend-chip.metal { border-color: var(--accent-yellow); color: var(--accent-yellow); background: rgba(240,192,64,0.08); }
+        .legend-chip.metal .dot { background: var(--accent-yellow); }
+
+        /* ===== DAYS ===== */
+        .days-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+        .day-block {
+            margin-bottom: 2.5rem;
+        }
+        .day-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .day-header .day-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+        }
+        .day-block:nth-child(2) .day-header .day-dot { background: var(--accent-rose); }
+        .day-block:nth-child(3) .day-header .day-dot { background: var(--accent-mint); }
+        .day-block:nth-child(4) .day-header .day-dot { background: var(--accent-sky); }
+
+        .band-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .band-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1rem;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .band-item:hover {
+            background: var(--bg-card-hover);
+            transform: translateX(5px);
+        }
+
+        .band-left {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .band-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .band-time {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .band-right {
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .band-stage {
+            font-size: 0.75rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 2px solid;
+            white-space: nowrap;
+        }
+
+        .stage-north { color: var(--accent-sky); border-color: var(--accent-sky); background: rgba(76,201,240,0.08); }
+        .stage-south { color: var(--accent-purple); border-color: var(--accent-purple); background: rgba(168,85,247,0.08); }
+        .stage-marquee { color: var(--accent-rose); border-color: var(--accent-rose); background: rgba(233,69,96,0.08); }
+        .stage-jupiler { color: var(--accent-orange); border-color: var(--accent-orange); background: rgba(255,107,53,0.08); }
+        .stage-metal { color: var(--accent-yellow); border-color: var(--accent-yellow); background: rgba(240,192,64,0.08); }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html" class="back-btn">← Volver</a>
+        <div class="header-title">Nico</div>
+        <img src="img/nico.jpg" alt="Nico" class="header-avatar" onerror="this.style.display='none'">
+    </div>
+
+    <div class="hero">
+        <h1>Graspop Metal Meeting</h1>
+        <p>18–21 Junio 2026 · Dessel, Bélgica</p>
+    </div>
+
+    <div class="legend">
+        <div class="legend-chip north"><span class="dot"></span>North Stage</div>
+        <div class="legend-chip south"><span class="dot"></span>South Stage</div>
+        <div class="legend-chip marquee"><span class="dot"></span>Marquee</div>
+        <div class="legend-chip jupiler"><span class="dot"></span>Jupiler Stage</div>
+        <div class="legend-chip metal"><span class="dot"></span>Metal Dome</div>
+    </div>
+
+    <div class="days-container">
+
+        <!-- JUEVES 18 -->
+        <div class="day-block">
+            <div class="day-header"><span class="day-dot"></span>Jueves 18 de Junio</div>
+            <div class="band-list">
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Mantah</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Ego Kill Talent</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Snot</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-marquee">Marquee</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Combichrist</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Danko Jones</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Wind Rose / Thrown</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Accept</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Tom Morello</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">A Day To Remember</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Bloodywood</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-metal">Metal Dome</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Pennywise</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-jupiler">Jupiler</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Within Temptation</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Limp Bizkit</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">The Offspring</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIERNES 19 -->
+        <div class="day-block">
+            <div class="day-header"><span class="day-dot"></span>Viernes 19 de Junio</div>
+            <div class="band-list">
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Infected Rain</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Bark</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-marquee">Marquee</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Drowning Pool</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Asomvel</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-marquee">Marquee</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Guilt Trip</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-jupiler">Jupiler</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Suicidal Angels</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-marquee">Marquee</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Cavalera Chaos</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Trivium</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Sexy Pistols</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Breaking Benjamin</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Death To All</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-marquee">Marquee</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Alter Bridge</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Knocked Loose</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Lionheart</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-jupiler">Jupiler</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Volbeat</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SÁBADO 20 -->
+        <div class="day-block">
+            <div class="day-header"><span class="day-dot"></span>Sábado 20 de Junio</div>
+            <div class="band-list">
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Mouth Culture</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-metal">Metal Dome</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Vicious Rumors</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-jupiler">Jupiler</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Fleddy Melculy</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">P.O.D.</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Ellende</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-marquee">Marquee</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Sepultura</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Hollywood Undead</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Three Days Grace</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Ice Nine Kills</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Baby Metal</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Architects</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Bad Omens</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Bring Me The Horizon</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOMINGO 21 -->
+        <div class="day-block">
+            <div class="day-header"><span class="day-dot"></span>Domingo 21 de Junio</div>
+            <div class="band-list">
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Evergrey</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Life of Agony</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Europe</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Wargasm</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-jupiler">Jupiler</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Extreme</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Foreigner</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-north">North</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Kanonenfieber</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-marquee">Marquee</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Black Label Society</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Lagwagon</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-jupiler">Jupiler</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Electric Callboy</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Carpenter Brut</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-metal">Metal Dome</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Mastodon</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-marquee">Marquee</span>
+                    </div>
+                </div>
+                <div class="band-item">
+                    <div class="band-left">
+                        <div class="band-name">Sabaton</div>
+                        <div class="band-time">Por confirmar</div>
+                    </div>
+                    <div class="band-right">
+                        <span class="band-stage stage-south">South</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>Veranito Yeye · Graspop Metal Meeting 2026 · Curada por Nico</p>
+    </div>
+
+</body>
+</html>
